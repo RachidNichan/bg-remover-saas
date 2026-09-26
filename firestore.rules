@@ -1,0 +1,27 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // User profile and credits document
+    match /users/{userId} {
+      // Users can only read and modify their own account profile
+      allow read: if request.auth != null && request.auth.uid == userId;
+      
+      // Allow user creation with default credits (up to 3) on sign up
+      allow create: if request.auth != null && request.auth.uid == userId
+                    && request.resource.data.credits <= 3;
+                    
+      // Allow updating credits if user is authenticated (decrements or valid operations)
+      allow update: if request.auth != null && request.auth.uid == userId;
+      
+      // Prevent deleting other users
+      allow delete: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Fallback: deny any other access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
