@@ -4,7 +4,7 @@ A modern, high-performance, full-stack AI Background Remover SaaS application. E
 
 ---
 
-## 🚀 Key Highlights & Architecture
+## Key Highlights & Architecture
 
 - **Frontend & SaaS Logic:** Next.js 14+ (App Router), TypeScript, Tailwind CSS, Lucide Icons, Shadcn-inspired dark aesthetic.
 - **AI Microservice:** Python FastAPI running `rembg[cpu]` with ONNX Runtime CPU execution. The `u2net` neural network is loaded into memory on startup for sub-second consecutive processing with **zero cold starts**.
@@ -15,7 +15,7 @@ A modern, high-performance, full-stack AI Background Remover SaaS application. E
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 bg-remover-saas/
@@ -75,7 +75,7 @@ bg-remover-saas/
 
 ---
 
-## 🛠️ Quick Start Option 1: Docker Compose (Recommended)
+## Quick Start Option 1: Docker Compose (Recommended)
 
 Running with Docker Compose starts both the Python AI microservice and the Next.js frontend in isolated containers with automatic health-checking and shared networking.
 
@@ -108,7 +108,7 @@ docker compose down
 
 ---
 
-## 💻 Quick Start Option 2: Running Locally Without Docker
+## Quick Start Option 2: Running Locally Without Docker
 
 If you prefer to run services natively on your machine:
 
@@ -157,7 +157,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 🔐 Firebase Authentication & Cloud Firestore Setup
+## Firebase Authentication & Cloud Firestore Setup
 
 ClearCut AI supports **Google Sign-In** and **Email/Password** authentication with Firestore credit balance management.
 
@@ -206,7 +206,7 @@ NEXT_PUBLIC_FIREBASE_APP_ID="1:1234567890:web:abcdef"
 
 ---
 
-## 📡 REST API Reference
+## REST API Reference
 
 The Python backend exposes clean REST endpoints:
 
@@ -237,7 +237,7 @@ curl -X POST \
 
 ---
 
-## 🌐 Production Ubuntu VPS Deployment
+## Production Ubuntu VPS Deployment
 
 To deploy ClearCut AI to an Ubuntu 22.04 or 24.04 VPS:
 
@@ -294,6 +294,6 @@ sudo certbot --nginx -d yourdomain.com
 
 ---
 
-## 🛡️ License
+## License
 
 This project is licensed under the MIT License — feel free to customize and launch your own AI SaaS.
