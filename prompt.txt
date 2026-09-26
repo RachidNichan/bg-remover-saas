@@ -1,0 +1,55 @@
+You are an elite Full-Stack AI Engineer. I want you to scaffold and build a complete, production-ready AI Background Remover SaaS MVP inside this directory (~/Development/bg-remover-saas).
+
+This project will run locally on a CPU (laptop) and be self-hosted later on an Ubuntu VPS.
+
+---
+
+### Tech Stack & Architecture:
+1. **Frontend & SaaS Logic:** Next.js 14+ (App Router), TypeScript, Tailwind CSS, Lucide React, Shadcn/UI style.
+2. **Database & Auth:** Firebase Auth (Google Sign-In + Email/Password) and Cloud Firestore for user credits.
+3. **AI Backend (Image Processing):** Python (FastAPI) running `rembg[cpu]` with ONNX Runtime configured for CPU inference. (Keep the AI model loaded in memory for fast processing).
+4. **Environment Files:** Create both `.env.example` and `.env` with all placeholder variables.
+
+---
+
+### Core Functionalities to Implement:
+
+#### 1. Python AI Microservice (`/backend`):
+- Create a lightweight FastAPI service.
+- Use `rembg` (CPU mode, using `u2net` or `isnet-general-use` model).
+- Endpoint: `POST /api/remove-bg`:
+  - Receives an image (file or base64).
+  - Processes it using `rembg.remove()`.
+  - Returns the processed PNG image with transparent background.
+- Include a simple `Dockerfile` and `requirements.txt`.
+
+#### 2. Next.js SaaS Application (`/frontend` or root):
+- **Landing Page:**
+  - Modern, dark-mode hero section.
+  - Interactive "Before & After" image comparison slider.
+  - Drag-and-drop image upload box (max 10MB, accepts JPG/PNG/WEBP).
+  - Feature highlights and pricing table.
+- **Authentication & User Management:**
+  - Firebase Authentication: Google Sign-in modal/page and Email/Password auth.
+  - Firestore integration:
+    - On user creation: assign default 3 free credits in `users/{userId}`.
+    - Each background removal consumes 1 credit.
+    - If credits == 0, prevent image processing and show an "Upgrade" modal.
+- **Core SaaS Flow:**
+  - User uploads image -> Check authentication & credits in Firestore -> Forward image to the Python FastAPI service -> Deduct 1 credit -> Display processed image with an instant "Download HD PNG" button.
+
+#### 3. Configuration & Deployment:
+- **`docker-compose.yml`**: To run both Next.js and the Python FastAPI microservice seamlessly with one command (`docker-compose up`).
+- **`.env.example` & `.env`**: Containing:
+  - `NEXT_PUBLIC_FIREBASE_API_KEY`, `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN`, `NEXT_PUBLIC_FIREBASE_PROJECT_ID`, etc.
+  - `AI_BACKEND_URL=http://localhost:8000` (or Docker service URL).
+
+---
+
+### Execution Instructions:
+1. Create the project folder structure cleanly:
+   - `/backend` (FastAPI + rembg)
+   - `/frontend` (Next.js app)
+   - Root configuration (`docker-compose.yml`, `.env`, `.env.example`, `README.md`)
+2. Write complete, production-ready code with no shortcuts or placeholders.
+3. Add a clear `README.md` explaining how to run the project locally using either Docker OR directly with `npm run dev` + `uvicorn main:app`.
