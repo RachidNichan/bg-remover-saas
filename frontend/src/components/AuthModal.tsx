@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { X, Sparkles, Mail, Lock, AlertCircle, ArrowRight, Check } from "lucide-react";
 
@@ -233,6 +234,26 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             <span>{mode === "signin" ? "Sign In" : "Claim Free 3 Credits"}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
+
+          <p className="text-[10px] text-center text-slate-500 mt-3 leading-relaxed">
+            By continuing, you agree to our{" "}
+            <Link
+              href="/terms"
+              onClick={onClose}
+              className="text-slate-400 hover:text-indigo-300 underline"
+            >
+              Terms of Service
+            </Link>{" "}
+            and{" "}
+            <Link
+              href="/privacy"
+              onClick={onClose}
+              className="text-slate-400 hover:text-indigo-300 underline"
+            >
+              Privacy Policy
+            </Link>
+            .
+          </p>
         </form>
       </div>
     </div>

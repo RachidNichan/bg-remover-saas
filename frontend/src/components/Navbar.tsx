@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { Sparkles, Zap, LogIn, LogOut, User, Cpu, ShieldCheck } from "lucide-react";
 
@@ -44,7 +45,7 @@ export function Navbar({ onOpenAuth, onOpenUpgrade }: NavbarProps) {
     <header className="sticky top-0 z-40 w-full glass-panel border-b border-white/10 bg-slate-950/95 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo */}
-        <a href="#" className="flex items-center gap-2.5 group">
+        <Link href="/" className="flex items-center gap-2.5 group">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-cyan-400 p-[1.5px] transition-transform group-hover:scale-105">
             <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
               <Sparkles className="w-4 h-4 text-cyan-300" />
@@ -55,28 +56,28 @@ export function Navbar({ onOpenAuth, onOpenUpgrade }: NavbarProps) {
               Remove Backgrounds<span className="text-cyan-400"> Online</span>
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
-          <a href="#uploader" className="hover:text-white transition-colors">
+          <Link href="/#uploader" className="hover:text-white transition-colors">
             Online Remover
-          </a>
-          <a href="#how-it-works" className="hover:text-white transition-colors">
+          </Link>
+          <Link href="/#how-it-works" className="hover:text-white transition-colors">
             How It Works
-          </a>
-          <a href="#comparison" className="hover:text-white transition-colors">
+          </Link>
+          <Link href="/#comparison" className="hover:text-white transition-colors">
             Comparison
-          </a>
-          <a href="#features" className="hover:text-white transition-colors">
+          </Link>
+          <Link href="/#features" className="hover:text-white transition-colors">
             Features
-          </a>
-          <a href="#pricing" className="hover:text-white transition-colors">
+          </Link>
+          <Link href="/#pricing" className="hover:text-white transition-colors">
             Pricing
-          </a>
-          <a href="#faq" className="hover:text-white transition-colors">
+          </Link>
+          <Link href="/#faq" className="hover:text-white transition-colors">
             FAQ
-          </a>
+          </Link>
         </nav>
 
         {/* Right Section: Status, Credits & Auth */}
