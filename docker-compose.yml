@@ -36,6 +36,7 @@ services:
         NEXT_PUBLIC_FIREBASE_APP_ID: ${NEXT_PUBLIC_FIREBASE_APP_ID:-""}
         NEXT_PUBLIC_DEFAULT_FREE_CREDITS: ${NEXT_PUBLIC_DEFAULT_FREE_CREDITS:-3}
         NEXT_PUBLIC_APP_NAME: ${NEXT_PUBLIC_APP_NAME:-Remove Backgrounds Online}
+        NEXT_PUBLIC_APP_URL: ${NEXT_PUBLIC_APP_URL:-https://removebackgrounds.online}
     image: bg-remover-frontend:latest
     container_name: bg-remover-frontend
     restart: unless-stopped
@@ -53,6 +54,7 @@ services:
       - NEXT_PUBLIC_FIREBASE_APP_ID=${NEXT_PUBLIC_FIREBASE_APP_ID}
       - NEXT_PUBLIC_DEFAULT_FREE_CREDITS=${NEXT_PUBLIC_DEFAULT_FREE_CREDITS:-3}
       - NEXT_PUBLIC_APP_NAME=${NEXT_PUBLIC_APP_NAME:-Remove Backgrounds Online}
+      - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-https://removebackgrounds.online}
       - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
       - FIREBASE_CLIENT_EMAIL=${FIREBASE_CLIENT_EMAIL}
       - FIREBASE_PRIVATE_KEY=${FIREBASE_PRIVATE_KEY}
