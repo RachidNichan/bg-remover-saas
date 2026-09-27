@@ -22,7 +22,7 @@ export async function GET() {
 
   return NextResponse.json({
     status: "online",
-    service: "clearcut-frontend",
+    service: "remove-backgrounds-online-frontend",
     timestamp: new Date().toISOString(),
     backend: {
       url: backendUrl,

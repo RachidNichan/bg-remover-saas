@@ -15,13 +15,16 @@ export function Footer() {
               </div>
             </div>
             <span className="font-bold text-white tracking-tight text-sm">
-              ClearCut<span className="text-cyan-400">.ai</span>
+              Remove Backgrounds<span className="text-cyan-400"> Online</span>
             </span>
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6 text-slate-400">
             <a href="#uploader" className="hover:text-white transition-colors">
-              AI Remover
+              Online Remover
+            </a>
+            <a href="#how-it-works" className="hover:text-white transition-colors">
+              How It Works
             </a>
             <a href="#comparison" className="hover:text-white transition-colors">
               Comparison Slider
@@ -40,7 +43,7 @@ export function Footer() {
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
           <p>
-            © {new Date().getFullYear()} ClearCut AI. Production-ready SaaS MVP. All rights reserved.
+            © {new Date().getFullYear()} Remove Backgrounds Online. Free AI Background Remover. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1 text-slate-400">

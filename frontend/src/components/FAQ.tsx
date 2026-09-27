@@ -11,7 +11,7 @@ interface FAQItem {
 const FAQS: FAQItem[] = [
   {
     q: "How does the AI model isolate complex edges and hair strands?",
-    a: "ClearCut uses rembg powered by the u2net neural network model through ONNX Runtime. The model analyzes multi-scale saliency features across the image, generating a high-precision alpha mask that separates flyaway hair, transparent glass, and fine textures cleanly.",
+    a: "Remove Backgrounds Online uses rembg powered by the u2net neural network model through ONNX Runtime. The model analyzes multi-scale saliency features across the image, generating a high-precision alpha mask that separates flyaway hair, transparent glass, and fine textures cleanly.",
   },
   {
     q: "Why can this run locally on a laptop CPU without expensive cloud GPUs?",
@@ -54,7 +54,7 @@ export function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="mt-2 text-slate-400 text-sm">
-            Everything you need to know about ClearCut AI, credit billing, and architecture.
+            Everything you need to know about Remove Backgrounds Online, credits, and architecture.
           </p>
         </div>
 

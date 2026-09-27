@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { HowItWorks } from "@/components/HowItWorks";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { ImageUploader } from "@/components/ImageUploader";
 import { ResultPreview } from "@/components/ResultPreview";
@@ -52,6 +53,11 @@ export default function HomePage() {
               onOpenUpgrade={() => setUpgradeOpen(true)}
             />
           )}
+        </div>
+
+        {/* Step-by-step How It Works Section for SEO & UX */}
+        <div id="how-it-works" className="scroll-mt-20">
+          <HowItWorks />
         </div>
 
         {/* Interactive Comparison Slider */}

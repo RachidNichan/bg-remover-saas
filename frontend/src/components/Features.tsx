@@ -64,10 +64,10 @@ export function Features() {
             <span>Built For Performance</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            Why Professionals Choose ClearCut
+            Why Choose Remove Backgrounds Online
           </h2>
           <p className="mt-3 text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
-            Engineered from the ground up for speed, precision, and privacy.
+            High-performance AI designed to remove backgrounds from portraits, products, and graphics with zero quality loss.
           </p>
         </div>
 

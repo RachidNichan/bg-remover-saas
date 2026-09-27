@@ -1,4 +1,4 @@
-# ClearCut AI — Production-Ready AI Background Remover SaaS MVP
+# Remove Backgrounds Online — Production-Ready AI Background Remover SaaS MVP
 
 A modern, high-performance, full-stack AI Background Remover SaaS application. Engineered to run seamlessly on a local laptop CPU and ready for single-command self-hosting on any Ubuntu VPS.
 
@@ -159,11 +159,11 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Firebase Authentication & Cloud Firestore Setup
 
-ClearCut AI supports **Google Sign-In** and **Email/Password** authentication with Firestore credit balance management.
+Remove Backgrounds Online supports **Google Sign-In** and **Email/Password** authentication with Firestore credit balance management.
 
 ### 1. Create a Firebase Project
 1. Visit the [Firebase Console](https://console.firebase.google.com/) and click **Add Project**.
-2. Name your project (e.g. `clearcut-bg-remover`).
+2. Name your project (e.g. `bg-remover-saas`).
 
 ### 2. Enable Authentication Providers
 1. In the left navigation, go to **Build** -> **Authentication** -> **Get Started**.
@@ -239,7 +239,7 @@ curl -X POST \
 
 ## Production Ubuntu VPS Deployment
 
-To deploy ClearCut AI to an Ubuntu 22.04 or 24.04 VPS:
+To deploy Remove Backgrounds Online to an Ubuntu 22.04 or 24.04 VPS:
 
 ### 1. Install Docker & Compose on Ubuntu
 
@@ -267,16 +267,16 @@ docker compose up -d --build
 
 ### 3. Nginx Reverse Proxy with SSL (Certbot)
 
-Create an Nginx site config `/etc/nginx/sites-available/clearcut`:
+Create an Nginx site config `/etc/nginx/sites-available/removebackgrounds.online`:
 
 ```nginx
 server {
-    server_name yourdomain.com;
+    server_name removebackgrounds.online www.removebackgrounds.online;
 
     client_max_body_size 25M;
 
     location / {
-        proxy_pass http://127.0.0.1:3000;
+        proxy_pass http://127.0.0.1:3010;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -288,8 +288,8 @@ server {
 
 Enable site and acquire free SSL certificate:
 ```bash
-sudo ln -s /etc/nginx/sites-available/clearcut /etc/nginx/sites-enabled/
-sudo certbot --nginx -d yourdomain.com
+sudo ln -s /etc/nginx/sites-available/removebackgrounds.online /etc/nginx/sites-enabled/
+sudo certbot --nginx -d removebackgrounds.online -d www.removebackgrounds.online
 ```
 
 ---

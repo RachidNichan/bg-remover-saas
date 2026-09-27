@@ -36,7 +36,7 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-const LOCAL_STORAGE_KEY = "clearcut_local_demo_user";
+const LOCAL_STORAGE_KEY = "removebg_local_demo_user";
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<any>(null);
@@ -82,7 +82,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   function createDefaultDemoProfile(u: any): UserProfile {
     return {
       uid: u.uid || "demo-user-123",
-      email: u.email || "demo@clearcut.ai",
+      email: u.email || "demo@removebackgrounds.online",
       displayName: u.displayName || "Demo Creator",
       photoURL: u.photoURL || null,
       credits: 3,
@@ -193,7 +193,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const useDemoAccount = () => {
     const demoUser = {
       uid: "demo-user-vip",
-      email: "creator@clearcut.ai",
+      email: "creator@removebackgrounds.online",
       displayName: "VIP Creator",
       photoURL: null,
     };

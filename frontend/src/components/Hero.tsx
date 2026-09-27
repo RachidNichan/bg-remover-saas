@@ -19,23 +19,22 @@ export function Hero({ onScrollToUploader }: HeroProps) {
         {/* Top Feature Pill */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-900/90 border border-indigo-500/30 text-indigo-300 mb-6 shadow-sm hover:border-indigo-400/50 transition-colors">
           <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-spin" style={{ animationDuration: "6s" }} />
-          <span>Next-Gen rembg AI v2.0 • In-Memory CPU Inference</span>
+          <span>100% Free Online AI Background Remover • Zero Installation</span>
           <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
           <span className="text-slate-400">3 Free Credits</span>
         </div>
 
         {/* Hero Title */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
-          Erase Backgrounds with{" "}
+          Remove Backgrounds Online{" "}
           <span className="bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300 bg-clip-text text-transparent">
-            Studio-Grade Precision
+            with 100% Automatic AI
           </span>
         </h1>
 
         {/* Subtitle */}
         <p className="mt-5 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          Isolate subjects, fine hair strands, and complex edges in seconds.
-          Powered by pre-warmed ONNX CPU runtime for fast processing without cloud GPU markups.
+          Remove backgrounds from any image online in 1 click. Isolate hair strands, portraits, e-commerce products, and logos with instant HD transparent PNG download. Fast, private, and free to try.
         </p>
 
         {/* CTAs */}

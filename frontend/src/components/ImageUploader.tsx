@@ -227,10 +227,10 @@ export function ImageUploader({
           {/* Section Heading */}
           <div className="text-center mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
-              Upload Your Image
+              Upload Image to Remove Background Online
             </h2>
             <p className="mt-1.5 text-sm text-slate-400">
-              Drag and drop any photo or paste directly with{" "}
+              Drag and drop any portrait, product, or graphic photo or paste directly with{" "}
               <kbd className="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-[11px] text-slate-300 font-mono">
                 Ctrl+V
               </kbd>

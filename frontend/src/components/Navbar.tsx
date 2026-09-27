@@ -51,8 +51,8 @@ export function Navbar({ onOpenAuth, onOpenUpgrade }: NavbarProps) {
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-lg tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-200 bg-clip-text text-transparent">
-              ClearCut<span className="text-cyan-400">.ai</span>
+            <span className="font-bold text-base sm:text-lg tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-200 bg-clip-text text-transparent">
+              Remove Backgrounds<span className="text-cyan-400"> Online</span>
             </span>
           </div>
         </a>
@@ -60,7 +60,10 @@ export function Navbar({ onOpenAuth, onOpenUpgrade }: NavbarProps) {
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
           <a href="#uploader" className="hover:text-white transition-colors">
-            Remover
+            Online Remover
+          </a>
+          <a href="#how-it-works" className="hover:text-white transition-colors">
+            How It Works
           </a>
           <a href="#comparison" className="hover:text-white transition-colors">
             Comparison

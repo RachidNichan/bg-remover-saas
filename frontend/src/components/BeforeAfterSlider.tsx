@@ -89,10 +89,10 @@ export function BeforeAfterSlider() {
             <span>Interactive Comparison</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            See the Quality for Yourself
+            See the Quality: Before & After Background Removal
           </h2>
           <p className="mt-2 text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
-            Drag the slider to compare original photos with AI cutouts. Sub-pixel accuracy down to single hair strands.
+            Drag the interactive slider to inspect our online background remover. Sub-pixel accuracy down to single hair strands and intricate product edges.
           </p>
 
           {/* Preset Selector */}
