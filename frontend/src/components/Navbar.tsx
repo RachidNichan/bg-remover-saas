@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
-import { Sparkles, Zap, LogIn, LogOut, User, Cpu, ShieldCheck } from "lucide-react";
+import { Sparkles, Zap, LogIn, LogOut, User } from "lucide-react";
 
 interface NavbarProps {
   onOpenAuth: () => void;
@@ -12,32 +12,7 @@ interface NavbarProps {
 
 export function Navbar({ onOpenAuth, onOpenUpgrade }: NavbarProps) {
   const { user, profile, signOutUser, isFirebaseConfigured } = useAuth();
-  const [backendStatus, setBackendStatus] = useState<"connected" | "checking" | "offline">("checking");
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  useEffect(() => {
-    async function checkHealth() {
-      try {
-        const res = await fetch("/api/health");
-        if (res.ok) {
-          const data = await res.json();
-          if (data.backend?.status === "connected") {
-            setBackendStatus("connected");
-          } else {
-            setBackendStatus("offline");
-          }
-        } else {
-          setBackendStatus("offline");
-        }
-      } catch {
-        setBackendStatus("offline");
-      }
-    }
-
-    checkHealth();
-    const interval = setInterval(checkHealth, 30000);
-    return () => clearInterval(interval);
-  }, []);
 
   const credits = profile?.credits ?? 3;
 
@@ -80,34 +55,8 @@ export function Navbar({ onOpenAuth, onOpenUpgrade }: NavbarProps) {
           </Link>
         </nav>
 
-        {/* Right Section: Status, Credits & Auth */}
+        {/* Right Section: Credits & Auth */}
         <div className="flex items-center gap-3">
-          {/* AI Backend Status Indicator */}
-          <div
-            title={
-              backendStatus === "connected"
-                ? "AI Backend is online & model loaded in CPU RAM"
-                : "Checking connection to Python AI backend..."
-            }
-            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-slate-900/80 border border-slate-800"
-          >
-            <Cpu className="w-3.5 h-3.5 text-slate-400" />
-            <span className="relative flex h-2 w-2">
-              <span
-                className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-                  backendStatus === "connected" ? "bg-emerald-400" : "bg-amber-400"
-                }`}
-              />
-              <span
-                className={`relative inline-flex rounded-full h-2 w-2 ${
-                  backendStatus === "connected" ? "bg-emerald-500" : "bg-amber-500"
-                }`}
-              />
-            </span>
-            <span className="text-slate-400">
-              {backendStatus === "connected" ? "AI CPU Ready" : "AI Connecting"}
-            </span>
-          </div>
 
           {/* Credits Counter Pill */}
           <button

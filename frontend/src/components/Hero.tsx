@@ -16,14 +16,6 @@ export function Hero({ onScrollToUploader }: HeroProps) {
       <div className="absolute top-24 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none -z-10" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-        {/* Top Feature Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-900/90 border border-indigo-500/30 text-indigo-300 mb-6 shadow-sm hover:border-indigo-400/50 transition-colors">
-          <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-spin" style={{ animationDuration: "6s" }} />
-          <span>100% Free Online AI Background Remover • Zero Installation</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-          <span className="text-slate-400">3 Free Credits</span>
-        </div>
-
         {/* Hero Title */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
           Remove Backgrounds Online{" "}
