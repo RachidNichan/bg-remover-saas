@@ -114,6 +114,7 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Remove Backgrounds Online",
+    alternateName: "Remove Backgrounds",
     url: siteUrl,
   },
 ];
