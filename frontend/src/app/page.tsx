@@ -17,6 +17,28 @@ export default function HomePage() {
   const [authOpen, setAuthOpen] = useState(false);
   const [processedResult, setProcessedResult] = useState<ProcessingResult | null>(null);
 
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Remove Backgrounds Online",
+      "url": "https://removebackgrounds.online",
+      "logo": "https://removebackgrounds.online/icon-512.png",
+      "description": "Free AI background remover tool to instantly remove image backgrounds online with transparent HD PNG downloads.",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Remove Backgrounds Online",
+      "alternateName": [
+        "Remove Backgrounds",
+        "RemoveBackgroundsOnline",
+        "removebackgrounds.online",
+      ],
+      "url": "https://removebackgrounds.online",
+    },
+  ];
+
   const scrollToUploader = () => {
     const el = document.getElementById("uploader");
     if (el) {
@@ -26,6 +48,12 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-neutral-900 dark:bg-[#0c0e0d] dark:text-neutral-100 transition-colors duration-150">
+      {/* Schema Markup for Google Site Name & Organization */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       {/* Navigation */}
       <Navbar onOpenAuth={() => setAuthOpen(true)} />
 

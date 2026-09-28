@@ -99,93 +99,82 @@ export const metadata: Metadata = {
   },
 };
 
-// JSON-LD Structured Data Schema for Search Engines (including WebSite Site Name for Google Search)
-const structuredData = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${siteUrl}/#website`,
-      name: "Remove Backgrounds Online",
-      alternateName: [
-        "Remove Backgrounds",
-        "RemoveBackgroundsOnline",
-        "removebackgrounds.online",
-      ],
-      url: `${siteUrl}/`,
-      publisher: {
-        "@id": `${siteUrl}/#organization`,
+// JSON-LD Structured Data Schema for Search Engines (Site Name & Organization)
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Remove Backgrounds Online",
+    url: siteUrl,
+    logo: `${siteUrl}/icon-512.png`,
+    description:
+      "A platform for removing backgrounds from images online in 1 click for free with HD transparent PNG download.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Remove Backgrounds Online",
+    alternateName: [
+      "Remove Backgrounds",
+      "RemoveBackgroundsOnline",
+      "removebackgrounds.online",
+    ],
+    url: siteUrl,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Remove Backgrounds Online",
+    url: siteUrl,
+    applicationCategory: "DesignApplication",
+    operatingSystem: "All",
+    browserRequirements: "Requires modern web browser with HTML5 support",
+    description:
+      "Free web-based AI background remover tool that instantly creates transparent PNG cutouts with sub-pixel precision.",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      description: "100% Free Unlimited AI Background Removal",
+    },
+    featureList: [
+      "100% Automatic AI Background Removal",
+      "Sub-pixel hair and fur edge detection",
+      "Lossless HD transparent PNG download",
+      "Custom background color switcher",
+      "In-memory processing for complete privacy",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Remove Background from Image Online for Free",
+    description: "Step-by-step guide to removing image backgrounds online using AI in seconds.",
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Upload Image",
+        text: "Drag and drop your photo (JPG, PNG, or WEBP) or paste from clipboard (Ctrl+V).",
+        url: `${siteUrl}/#uploader`,
       },
-      inLanguage: "en-US",
-    },
-    {
-      "@type": "Organization",
-      "@id": `${siteUrl}/#organization`,
-      name: "Remove Backgrounds Online",
-      url: `${siteUrl}/`,
-      logo: {
-        "@type": "ImageObject",
-        "@id": `${siteUrl}/#logo`,
-        url: `${siteUrl}/icon-512.png`,
-        caption: "Remove Backgrounds Online Logo",
-        width: 512,
-        height: 512,
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Automatic AI Processing",
+        text: "Our neural network detects subjects and isolates backgrounds within 2 seconds.",
+        url: `${siteUrl}/#uploader`,
       },
-    },
-    {
-      "@type": "WebApplication",
-      "@id": `${siteUrl}/#webapp`,
-      name: "Remove Backgrounds Online",
-      url: siteUrl,
-      applicationCategory: "DesignApplication",
-      operatingSystem: "All",
-      browserRequirements: "Requires modern web browser with HTML5 support",
-      description:
-        "Free web-based AI background remover tool that instantly creates transparent PNG cutouts with sub-pixel precision.",
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-        description: "100% Free Unlimited AI Background Removal",
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Download Transparent PNG",
+        text: "Preview the cutout on transparent or colored backdrops and click Download HD PNG.",
+        url: `${siteUrl}/#uploader`,
       },
-      featureList: [
-        "100% Automatic AI Background Removal",
-        "Sub-pixel hair and fur edge detection",
-        "Lossless HD transparent PNG download",
-        "Custom background color switcher",
-        "In-memory processing for complete privacy",
-      ],
-    },
-    {
-      "@type": "HowTo",
-      name: "How to Remove Background from Image Online for Free",
-      description: "Step-by-step guide to removing image backgrounds online using AI in seconds.",
-      step: [
-        {
-          "@type": "HowToStep",
-          position: 1,
-          name: "Upload Image",
-          text: "Drag and drop your photo (JPG, PNG, or WEBP) or paste from clipboard (Ctrl+V).",
-          url: `${siteUrl}/#uploader`,
-        },
-        {
-          "@type": "HowToStep",
-          position: 2,
-          name: "Automatic AI Processing",
-          text: "Our neural network detects subjects and isolates backgrounds within 2 seconds.",
-          url: `${siteUrl}/#uploader`,
-        },
-        {
-          "@type": "HowToStep",
-          position: 3,
-          name: "Download Transparent PNG",
-          text: "Preview the cutout on transparent or colored backdrops and click Download HD PNG.",
-          url: `${siteUrl}/#uploader`,
-        },
-      ],
-    },
-  ],
-};
+    ],
+  },
+];
 
 export default function RootLayout({
   children,
@@ -235,7 +224,7 @@ export default function RootLayout({
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="min-h-full flex flex-col bg-white text-neutral-900 dark:bg-[#0c0e0d] dark:text-neutral-100 selection:bg-emerald-500 selection:text-white transition-colors duration-150">
