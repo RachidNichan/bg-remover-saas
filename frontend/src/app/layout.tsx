@@ -149,9 +149,30 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const isProduction = process.env.NODE_ENV === "production";
+
   return (
     <html lang="en" suppressHydrationWarning className="h-full antialiased scroll-smooth">
       <head>
+        {isProduction && (
+          <>
+            {/* Google tag (gtag.js) */}
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-76STEQV112"
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-76STEQV112');
+                `,
+              }}
+            />
+          </>
+        )}
         <script
           dangerouslySetInnerHTML={{
             __html: `
