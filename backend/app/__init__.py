@@ -1,1 +1,1 @@
-# Background Remover AI Backend
+# Background Remover Backend

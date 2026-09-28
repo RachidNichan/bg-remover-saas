@@ -20,7 +20,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 export const metadata: Metadata = {
   title: "About Us | Remove Backgrounds Online",
   description:
-    "Learn about Remove Backgrounds Online. We provide 100% free, privacy-first, high-precision AI background removal with zero paywalls, zero credits, and zero data retention.",
+    "Learn about Remove Backgrounds Online. We provide 100% free, privacy-first, high-precision background removal with zero paywalls, zero credits, and zero data retention.",
   alternates: {
     canonical: "https://removebackgrounds.online/about",
   },
@@ -95,7 +95,7 @@ export default function AboutPage() {
               Privacy by Design
             </h2>
             <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-              Your photos are processed purely in ephemeral server RAM and wiped immediately after inference. We never save, inspect, or use your images for machine learning training.
+              Your photos are processed purely in ephemeral server RAM and wiped immediately after delivery. We never save, inspect, or retain your images.
             </p>
           </div>
 
@@ -104,10 +104,10 @@ export default function AboutPage() {
               <Cpu className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
             </div>
             <h2 className="text-base font-bold text-neutral-900 dark:text-white mb-2">
-              Optimized AI Engine
+              Optimized High-Speed Engine
             </h2>
             <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-              Powered by specialized neural network models and ONNX Runtime CPU instruction sets, delivering clean edges around hair, clothes, and transparent objects in 1-2 seconds.
+              Powered by specialized high-performance image processing algorithms, delivering clean edges around hair, clothes, and transparent objects in 1-2 seconds.
             </p>
           </div>
 
@@ -134,7 +134,7 @@ export default function AboutPage() {
               Most online background removers follow the same frustrating pattern: you upload an image, see a nice preview, and are suddenly blocked by a paywall, forced to purchase &quot;credits&quot;, or forced to download a low-resolution thumbnail covered with a watermark.
             </p>
             <p>
-              We believed there was a better way. With modern CPU-optimized machine learning architectures, high-quality background segmentation can be computed cleanly, efficiently, and cost-effectively. We designed Remove Backgrounds Online to be the utility we always wanted to use ourselves: instant, accurate, completely free, and completely respectful of user privacy.
+              We believed there was a better way. With modern server optimization, high-quality background removal can be computed cleanly, efficiently, and cost-effectively. We designed Remove Backgrounds Online to be the utility we always wanted to use ourselves: instant, accurate, completely free, and completely respectful of user privacy.
             </p>
           </section>
 
@@ -166,7 +166,7 @@ export default function AboutPage() {
               <span>Our Privacy Pledge</span>
             </h2>
             <p>
-              We believe in data minimalism. Unlike many cloud services that store uploaded pictures to train proprietary AI datasets or track user habits, our architecture has zero persistent image storage. Once your transparent PNG is generated and returned to your browser, all memory traces are instantly cleared.
+              We believe in data minimalism. Unlike many cloud services that store uploaded pictures or track user habits, our architecture has zero persistent image storage. Once your transparent PNG is generated and returned to your browser, all memory traces are instantly cleared.
             </p>
           </section>
         </article>

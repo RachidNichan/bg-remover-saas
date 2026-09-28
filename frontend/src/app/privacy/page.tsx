@@ -21,7 +21,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 export const metadata: Metadata = {
   title: "Privacy Policy | Remove Backgrounds Online",
   description:
-    "Review our strict Privacy Policy. At Remove Backgrounds Online, your photos are processed purely in ephemeral RAM and never stored on disk or used for AI training.",
+    "Review our strict Privacy Policy. At Remove Backgrounds Online, your photos are processed purely in ephemeral RAM and never stored on disk or retained.",
   alternates: {
     canonical: "https://removebackgrounds.online/privacy",
   },
@@ -88,13 +88,13 @@ export default function PrivacyPolicyPage() {
           </p>
           <ul className="list-disc pl-5 space-y-1.5 text-neutral-700 dark:text-neutral-200">
             <li>
-              <strong>100% In-Memory RAM Processing:</strong> Your picture is decoded in temporary volatile RAM, processed by our neural network model, and converted into a transparent PNG.
+              <strong>100% In-Memory RAM Processing:</strong> Your picture is decoded in temporary volatile RAM, processed automatically, and converted into a transparent PNG.
             </li>
             <li>
               <strong>No Disk Writing:</strong> Your image files are <strong>never</strong> saved to hard drives, cloud buckets, or file systems.
             </li>
             <li>
-              <strong>Zero AI Training:</strong> We <strong>never</strong> use your photographs or resulting cutouts to train, evaluate, or fine-tune AI models.
+              <strong>Zero Image Retention:</strong> We <strong>never</strong> store, archive, or retain your photographs or resulting cutouts.
             </li>
             <li>
               <strong>Immediate Memory Purge:</strong> Once the processed PNG stream is transmitted back to your browser, all memory buffers holding your image are immediately discarded.
@@ -206,8 +206,8 @@ export default function PrivacyPolicyPage() {
                 and user profile records under Google Cloud Enterprise security standards.
               </li>
               <li>
-                <strong>Cloud Hosting Infrastructure:</strong> Houses our self-hosted Docker containers and Python AI
-                microservice behind encrypted Nginx reverse proxies with SSL/TLS (Let&apos;s Encrypt).
+                <strong>Cloud Hosting Infrastructure:</strong> Houses our self-hosted Docker containers and processing
+                services behind encrypted Nginx reverse proxies with SSL/TLS (Let&apos;s Encrypt).
               </li>
             </ul>
           </section>
@@ -263,7 +263,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <ul className="list-disc pl-5 space-y-1.5">
               <li>All web traffic between your browser and our servers is secured using modern TLS 1.3 / HTTPS encryption.</li>
-              <li>AI inference microservices operate in sandboxed, non-privileged Docker container runtimes.</li>
+              <li>Image processing microservices operate in sandboxed, non-privileged Docker container runtimes.</li>
               <li>Database access rules enforce strict user-only read/write permissions via Firebase Security Rules.</li>
             </ul>
           </section>

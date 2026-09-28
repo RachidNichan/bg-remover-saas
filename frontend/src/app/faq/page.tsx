@@ -47,8 +47,8 @@ const ALL_FAQS: FAQItem[] = [
 
   // Quality & Processing
   {
-    q: "How does the AI isolate complex edges like hair and fur?",
-    a: "We utilize modern salient object detection neural networks (powered by u2net and rembg) executed via ONNX Runtime. The model analyzes multi-scale saliency features across the image, producing an ultra-precise alpha transparency mask that separates flyaway hair, glass transparency, and fine textures cleanly.",
+    q: "How does the tool isolate complex edges like hair and fur?",
+    a: "We utilize high-precision edge detection and object isolation algorithms. The system analyzes contrast and fine details across the image, producing an ultra-precise alpha transparency mask that cleanly separates flyaway hair, glass transparency, and fine textures.",
     category: "quality",
   },
   {
@@ -62,8 +62,8 @@ const ALL_FAQS: FAQItem[] = [
     category: "quality",
   },
   {
-    q: "Why is the processing so fast without requiring expensive cloud GPUs?",
-    a: "Our backend is built with Python FastAPI and uses ONNX Runtime with optimized CPU instruction sets (AVX2/AVX-512). The neural network weights remain pre-warmed in server RAM, allowing fast in-memory inference in approximately 1.5 to 2.5 seconds.",
+    q: "Why is the processing so fast and responsive?",
+    a: "Our backend is built with Python FastAPI and operates with pre-warmed memory optimization. The processing engine remains in server RAM, allowing fast in-memory cutouts in approximately 1.5 to 2.5 seconds without cold-start delays or slow disk operations.",
     category: "quality",
   },
 
@@ -74,8 +74,8 @@ const ALL_FAQS: FAQItem[] = [
     category: "privacy",
   },
   {
-    q: "Do you use uploaded photos to train artificial intelligence models?",
-    a: "No. We have a strict zero-data-retention policy. Your photos are never saved, indexed, aggregated, or used to train any machine learning models.",
+    q: "Do you store, sell, or retain uploaded photos?",
+    a: "No. We have a strict zero-data-retention policy. Your photos are never saved, indexed, aggregated, or retained. Once the background is removed, the data is immediately purged from memory.",
     category: "privacy",
   },
   {

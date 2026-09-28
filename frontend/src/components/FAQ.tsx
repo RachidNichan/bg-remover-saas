@@ -10,12 +10,12 @@ interface FAQItem {
 
 const FAQS: FAQItem[] = [
   {
-    q: "How does the AI model isolate complex edges and hair strands?",
-    a: "Remove Backgrounds Online uses rembg powered by the u2net neural network model through ONNX Runtime. The model analyzes multi-scale saliency features across the image, generating a high-precision alpha mask that separates flyaway hair, transparent glass, and fine textures cleanly.",
+    q: "How does the tool isolate complex edges and hair strands?",
+    a: "Remove Backgrounds Online uses specialized high-precision edge detection algorithms. The system analyzes contrast and multi-scale visual details across the image, generating an accurate alpha mask that separates flyaway hair, transparent glass, and fine textures cleanly.",
   },
   {
-    q: "Why can this run locally on a laptop CPU without expensive cloud GPUs?",
-    a: "The ONNX Runtime executes the quantized model graph with CPU instruction optimizations (AVX2/AVX-512). The neural network model is loaded into RAM once upon service startup (taking ~0.38s), meaning consecutive image requests are processed in memory in ~1.5 - 2.5 seconds without any cold-start penalties.",
+    q: "Why is processing so fast and responsive?",
+    a: "The processing engine is pre-warmed directly into server RAM upon service startup, meaning consecutive image requests are processed in ephemeral memory in ~1.5 - 2.5 seconds without slow disk operations or delays.",
   },
   {
     q: "Is Remove Backgrounds Online completely free to use?",
@@ -23,7 +23,7 @@ const FAQS: FAQItem[] = [
   },
   {
     q: "Are my uploaded photos stored or shared?",
-    a: "Never. All image uploads are processed purely in ephemeral system RAM and returned immediately as a PNG stream. No uploaded images are ever written to disk, saved into a database, or used for model training.",
+    a: "Never. All image uploads are processed purely in ephemeral system RAM and returned immediately as a PNG stream. No uploaded images are ever written to disk, saved into a database, or retained.",
   },
   {
     q: "Can I deploy this to my own Ubuntu VPS?",

@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      // Forward as multipart to the AI backend
+      // Forward as multipart to the backend
       const forwardFormData = new FormData();
       forwardFormData.append("file", file);
 
@@ -66,11 +66,11 @@ export async function POST(request: NextRequest) {
           body: forwardFormData,
         });
       } catch (err: any) {
-        console.error("Failed to connect to Python AI backend:", err);
+        console.error("Failed to connect to processing backend:", err);
         return NextResponse.json(
           {
             error:
-              "AI Microservice is unreachable. Please ensure the Python backend is running on " +
+              "Image processing service is temporarily unreachable. Please ensure the backend is running on " +
               backendUrl,
           },
           { status: 503 }
@@ -89,11 +89,11 @@ export async function POST(request: NextRequest) {
           body: JSON.stringify(jsonBody),
         });
       } catch (err: any) {
-        console.error("Failed to connect to Python AI backend:", err);
+        console.error("Failed to connect to processing backend:", err);
         return NextResponse.json(
           {
             error:
-              "AI Microservice is unreachable. Please ensure the Python backend is running on " +
+              "Image processing service is temporarily unreachable. Please ensure the backend is running on " +
               backendUrl,
           },
           { status: 503 }
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
     if (!backendResponse.ok) {
       const errorText = await backendResponse.text();
       return NextResponse.json(
-        { error: `AI backend returned error: ${errorText}` },
+        { error: `Processing service returned error: ${errorText}` },
         { status: backendResponse.status }
       );
     }

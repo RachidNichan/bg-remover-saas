@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Remove Backgrounds Online",
     short_name: "Remove Backgrounds",
-    description: "Free AI background remover. Remove backgrounds from images online in 1 click with HD transparent PNG download.",
+    description: "Free automatic background remover. Remove backgrounds from images online in 1 click with HD transparent PNG download.",
     start_url: "/",
     display: "standalone",
     background_color: "#0c0e0d",

@@ -61,17 +61,17 @@ def check_backend_rate_limit(ip: str) -> tuple[bool, int]:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup: Load the AI model into memory on CPU
-    logger.info("Initializing Background Remover AI service...")
+    # Startup: Load the processing engine into memory on CPU
+    logger.info("Initializing Background Remover service...")
     app.state.remover = BackgroundRemoverService(model_name=settings.MODEL_NAME)
     logger.info("Background Remover service initialized and ready.")
     yield
     # Shutdown: Clean up if necessary
-    logger.info("Shutting down Background Remover AI service.")
+    logger.info("Shutting down Background Remover service.")
 
 app = FastAPI(
-    title="AI Background Remover API",
-    description="High-performance background removal microservice powered by rembg and ONNX Runtime CPU",
+    title="Background Remover API",
+    description="High-performance background removal microservice powered by in-memory CPU processing",
     version="1.0.0",
     lifespan=lifespan,
 )
@@ -88,8 +88,7 @@ app.add_middleware(
 @app.get("/", tags=["General"])
 async def root():
     return {
-        "message": "AI Background Remover Service is operational",
-        "model": settings.MODEL_NAME,
+        "message": "Background Remover Service is operational",
         "runtime": "CPU",
         "docs": "/docs",
     }
@@ -100,17 +99,17 @@ async def health_check():
     if not is_ready:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="Model is still initializing",
+            detail="Service is still initializing",
         )
     return HealthResponse(
         status="healthy",
-        service="bg-remover-ai",
+        service="bg-remover",
         model=settings.MODEL_NAME,
         runtime="onnxruntime-cpu",
         version="1.0.0",
     )
 
-@app.post("/api/remove-bg", tags=["AI Image Processing"])
+@app.post("/api/remove-bg", tags=["Image Processing"])
 async def remove_background(
     request: Request,
     file: Optional[UploadFile] = File(None),
@@ -128,10 +127,10 @@ async def remove_background(
     if remover is None:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="AI model is not ready. Please try again in a few moments.",
+            detail="Processing service is initializing. Please try again in a few moments.",
         )
 
-    # Rate limit check to protect AI engine against bot spam and DDoS
+    # Rate limit check to protect backend engine against bot spam and DDoS
     forwarded = request.headers.get("x-forwarded-for")
     if forwarded:
         client_ip = forwarded.split(",")[0].strip()
@@ -194,7 +193,7 @@ async def remove_background(
             detail="Please provide an image via multipart 'file' or JSON 'image' (base64).",
         )
 
-    # Process the image with the AI model
+    # Process the image to remove background
     try:
         output_bytes, elapsed_time = remover.remove_background(
             image_bytes=image_bytes,
@@ -210,7 +209,7 @@ async def remove_background(
         logger.error(f"Inference error: {e}", exc_info=True)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"AI processing failed: {str(e)}",
+            detail=f"Image processing failed: {str(e)}",
         )
 
     # Return output as JSON or raw PNG

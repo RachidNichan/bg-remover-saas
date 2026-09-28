@@ -130,8 +130,8 @@ export default function HelpPage() {
               <div className="flex items-start gap-3">
                 <span className="w-6 h-6 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shrink-0">2</span>
                 <div>
-                  <strong className="text-neutral-900 dark:text-white block">Automatic AI Segmentation</strong>
-                  <p className="text-neutral-600 dark:text-neutral-400 mt-0.5">In ~1.5 to 2.5 seconds, our AI model isolates the subject and removes the background entirely in server memory without saving any file to disk.</p>
+                  <strong className="text-neutral-900 dark:text-white block">Automatic Background Removal</strong>
+                  <p className="text-neutral-600 dark:text-neutral-400 mt-0.5">In ~1.5 to 2.5 seconds, our system isolates the subject and removes the background entirely in server memory without saving any file to disk.</p>
                 </div>
               </div>
 
@@ -158,7 +158,7 @@ export default function HelpPage() {
                   <span>Optimal Subject Contrast</span>
                 </h3>
                 <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                  The AI model separates subjects by detecting contrast and depth boundaries. Subjects with distinct separation from their background (e.g., a dark jacket against a light wall) produce razor-sharp edges.
+                  The system separates subjects by detecting contrast and boundary details. Subjects with distinct separation from their background (e.g., a dark jacket against a light wall) produce razor-sharp edges.
                 </p>
               </div>
 

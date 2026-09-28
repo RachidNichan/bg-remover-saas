@@ -10,15 +10,15 @@ const FEATURES = [
     bgColor: "bg-emerald-500/10 border-emerald-500/20",
     title: "Hair & Fur Precision",
     description:
-      "Advanced neural matting separates flyaway hair, animal fur, transparent glass, and intricate clothing edges with sub-pixel fidelity.",
+      "Advanced alpha matting separates flyaway hair, animal fur, transparent glass, and intricate clothing edges with sub-pixel fidelity.",
   },
   {
     icon: Cpu,
     color: "text-emerald-400",
     bgColor: "bg-emerald-500/10 border-emerald-500/20",
-    title: "Pre-Warmed CPU Engine",
+    title: "Pre-Warmed In-Memory Engine",
     description:
-      "The rembg u2net model remains loaded in system memory using optimized ONNX runtime. No cold-start lag or cloud GPU bills.",
+      "The background removal engine remains loaded in system memory for instant execution. No cold-start lag or slow processing.",
   },
   {
     icon: Shield,
@@ -67,7 +67,7 @@ export function Features() {
             Why Choose Remove Backgrounds Online
           </h2>
           <p className="mt-3 text-neutral-600 dark:text-neutral-400 text-sm sm:text-base max-w-xl mx-auto">
-            High-performance AI designed to remove backgrounds from portraits, products, and graphics with zero quality loss.
+            High-performance automated tool designed to remove backgrounds from portraits, products, and graphics with zero quality loss.
           </p>
         </div>
 

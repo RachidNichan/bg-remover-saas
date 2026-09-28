@@ -15,16 +15,16 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Remove Backgrounds Online — 100% Free AI Background Remover",
+    default: "Remove Backgrounds Online — 100% Free Automatic Background Remover",
     template: "%s | Remove Backgrounds Online",
   },
   description:
-    "Remove backgrounds from images online in 1 click for free. Advanced AI automatically isolates people, products, animals, and car photos with instant HD transparent PNG download. No registration required to test.",
+    "Remove backgrounds from images online in 1 click for free. Automatically isolates people, products, animals, and car photos with instant HD transparent PNG download. No registration required.",
   keywords: [
     "remove backgrounds online",
     "remove background online",
     "free background remover",
-    "ai background remover",
+    "automatic background remover",
     "transparent background png online",
     "remove bg online free",
     "erase photo background",
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   openGraph: {
-    title: "Remove Backgrounds Online — 100% Free AI Background Remover",
+    title: "Remove Backgrounds Online — 100% Free Automatic Background Remover",
     description:
-      "Erase image backgrounds in seconds with studio-grade AI precision. Download lossless transparent PNG cutouts instantly. 100% free to try.",
+      "Erase image backgrounds in seconds with studio-grade precision. Download lossless transparent PNG cutouts instantly. 100% free to use.",
     url: siteUrl,
     siteName: "Remove Backgrounds Online",
     images: [
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
         url: "/samples/portrait-after.png",
         width: 1024,
         height: 1024,
-        alt: "Remove Backgrounds Online - Sample AI Cutout Preview",
+        alt: "Remove Backgrounds Online - Sample Cutout Preview",
       },
     ],
     locale: "en_US",
@@ -63,9 +63,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Remove Backgrounds Online — 100% Free AI Background Remover",
+    title: "Remove Backgrounds Online — 100% Free Automatic Background Remover",
     description:
-      "Erase image backgrounds in seconds with studio-grade AI precision. Download lossless transparent PNG cutouts instantly.",
+      "Erase image backgrounds in seconds with studio-grade precision. Download lossless transparent PNG cutouts instantly.",
     images: ["/samples/portrait-after.png"],
     creator: "@removebgonline",
   },

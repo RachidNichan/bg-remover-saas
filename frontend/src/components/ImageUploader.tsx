@@ -131,7 +131,7 @@ export function ImageUploader({
     if (!selectedFile) return;
 
     setState("processing");
-    setProcessingStep("Sending image to AI microservice...");
+    setProcessingStep("Uploading image for processing...");
 
     try {
       const formData = new FormData();
@@ -143,7 +143,7 @@ export function ImageUploader({
 
       // Progress simulation steps for engaging UX
       const stepTimer1 = setTimeout(() => {
-        setProcessingStep("ONNX CPU runtime isolating subject...");
+        setProcessingStep("Detecting subject and isolating edges...");
       }, 700);
 
       const stepTimer2 = setTimeout(() => {
@@ -256,12 +256,12 @@ export function ImageUploader({
                 <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 absolute -top-1 -right-1 animate-pulse" />
               </div>
 
-              <h3 className="text-xl font-bold text-neutral-900 dark:text-white">AI Processing Image</h3>
+              <h3 className="text-xl font-bold text-neutral-900 dark:text-white">Processing Image</h3>
               <p className="text-emerald-600 dark:text-emerald-400 text-sm font-medium mt-2">
                 {processingStep}
               </p>
               <p className="text-neutral-500 dark:text-neutral-400 text-xs mt-3 max-w-xs">
-                Running in-memory CPU ONNX inference. Usually completes within 1.5 - 3 seconds.
+                High-speed in-memory processing. Usually completes within 1.5 - 3 seconds.
               </p>
             </div>
           ) : selectedFile && previewUrl ? (
@@ -292,7 +292,7 @@ export function ImageUploader({
               <div className="p-4 rounded-xl bg-white dark:bg-[#181c1a] border border-neutral-300 dark:border-neutral-800 flex flex-wrap items-center justify-between gap-4 text-xs">
                 <div className="flex items-center gap-2 text-neutral-700 dark:text-neutral-300 font-medium">
                   <Sliders className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                  <span>AI Refinement Settings:</span>
+                  <span>Refinement Settings:</span>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-4">
@@ -322,7 +322,7 @@ export function ImageUploader({
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
                 <div className="flex items-center gap-2 text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
                   <Sparkles className="w-4 h-4" />
-                  <span>100% Free • Unlimited AI Removals</span>
+                  <span>100% Free • Unlimited Removals</span>
                 </div>
 
                 <div className="flex items-center gap-3 w-full sm:w-auto">

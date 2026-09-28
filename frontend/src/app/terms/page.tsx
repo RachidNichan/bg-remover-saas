@@ -86,7 +86,7 @@ export default function TermsOfServicePage() {
             • <strong>Your Content is Yours:</strong> You retain 100% intellectual property ownership of any photo you upload and all transparent cutouts you generate.
           </p>
           <p>
-            • <strong>Zero Data Retention:</strong> Images uploaded for background removal are processed strictly in server RAM and are immediately purged from memory once the transparent PNG is delivered. We never store your photos or use them to train AI models.
+            • <strong>Zero Data Retention:</strong> Images uploaded for background removal are processed strictly in server RAM and are immediately purged from memory once the transparent PNG is delivered. We never store, archive, or retain your photos.
           </p>
           <p>
             • <strong>Fair Usage:</strong> You agree not to upload abusive, unlawful, or infringing images, or attempt to overwhelm or reverse-engineer the service.
@@ -121,13 +121,12 @@ export default function TermsOfServicePage() {
               <span>2. Description of the Service</span>
             </h2>
             <p className="mb-3">
-              Remove Backgrounds Online is an automated cloud-based software-as-a-service (SaaS) utility that utilizes
-              machine learning neural network models to isolate subjects (such as humans, products, automobiles, and animals)
-              and remove backgrounds from user-supplied digital image files.
+              Remove Backgrounds Online is an automated software utility that isolates subjects
+              (such as humans, products, automobiles, and animals) and removes backgrounds from user-supplied digital image files.
             </p>
             <p>
               The service converts raster graphics (JPG, PNG, WEBP) into transparent PNG cutouts. The processing is
-              performed using optimized CPU inference.
+              performed automatically in server memory.
             </p>
           </section>
 
@@ -237,7 +236,7 @@ export default function TermsOfServicePage() {
               MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
             </p>
             <p>
-              While our AI model provides high segmentation precision, we do not warrant that output cutouts will meet all
+              While our automated processing service provides high segmentation precision, we do not warrant that output cutouts will meet all
               aesthetic expectations, be error-free, or that service operation will be uninterrupted.
             </p>
           </section>

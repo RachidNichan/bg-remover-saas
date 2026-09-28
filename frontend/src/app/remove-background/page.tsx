@@ -33,7 +33,7 @@ export default function RemoveBackgroundPage() {
         <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/25 text-emerald-700 dark:text-emerald-400 mb-3">
             <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-            <span>AI Background Remover</span>
+            <span>Automatic Background Remover</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
@@ -95,7 +95,7 @@ export default function RemoveBackgroundPage() {
             </div>
             <div>
               <h3 className="text-xs font-bold text-neutral-900 dark:text-white">
-                Ultra-Fast Inference
+                Ultra-Fast Processing
               </h3>
               <p className="text-[11px] text-neutral-600 dark:text-neutral-400 mt-0.5">
                 Accurate edge cutouts in ~1.5 to 2.5 seconds.

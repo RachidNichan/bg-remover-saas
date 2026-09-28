@@ -42,7 +42,7 @@ export function Pricing({ onOpenUpgrade, onOpenAuth }: PricingProps) {
                 </span>
               </div>
               <p className="text-xs text-slate-400 mt-2">
-                Ideal for testing out the AI quality on your own photos.
+                Ideal for testing out the cutout quality on your own photos.
               </p>
 
               <div className="mt-6 flex items-baseline gap-1">

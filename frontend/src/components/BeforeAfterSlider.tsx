@@ -184,14 +184,14 @@ export function BeforeAfterSlider() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={activePreset.after}
-                alt="AI Processed with background removed"
+                alt="Processed with background removed"
                 className="w-full h-full object-cover pointer-events-none"
               />
 
               {/* Label Right */}
               <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-lg bg-white/90 dark:bg-[#0c0e0d]/90 border border-neutral-200 dark:border-neutral-800 text-xs font-semibold text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
                 <Sparkles className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
-                <span>AI Background Removed</span>
+                <span>Background Removed</span>
               </div>
             </div>
 

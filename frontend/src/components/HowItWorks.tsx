@@ -17,9 +17,9 @@ export function HowItWorks() {
     {
       step: "02",
       icon: Cpu,
-      title: "2. Automatic AI Eraser",
+      title: "2. Automatic Cutout",
       description:
-        "Our neural network automatically detects foreground subjects, extracts complex hair strands, and erases the background in ~1.5s.",
+        "Our system automatically detects foreground subjects, extracts complex hair strands, and erases the background in ~1.5s.",
       color: "text-emerald-400",
       bgColor: "bg-emerald-500/10 border-emerald-500/20",
     },

@@ -162,7 +162,7 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
                 {/* Processed */}
                 <div className="flex flex-col gap-2">
                   <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1">
-                    <Sparkles className="w-3.5 h-3.5" /> Clean AI Cutout
+                    <Sparkles className="w-3.5 h-3.5" /> Clean HD Cutout
                   </span>
                   <div
                     className={`aspect-square rounded-2xl overflow-hidden border border-neutral-300 dark:border-neutral-800 flex items-center justify-center ${

@@ -15,7 +15,7 @@ export function Hero({ onScrollToUploader }: HeroProps) {
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-neutral-900 dark:text-white leading-[1.15]">
           Remove Backgrounds Online{" "}
           <span className="text-emerald-600 dark:text-emerald-400">
-            with 100% Automatic AI
+            Automatically in 1 Click
           </span>
         </h1>
 
@@ -51,7 +51,7 @@ export function Hero({ onScrollToUploader }: HeroProps) {
             </div>
             <div>
               <p className="text-neutral-900 dark:text-white font-bold text-sm">~1.8s Speed</p>
-              <p className="text-neutral-500 dark:text-neutral-400 text-xs">CPU ONNX Optimized</p>
+              <p className="text-neutral-500 dark:text-neutral-400 text-xs">High-Speed In-Memory</p>
             </div>
           </div>
 
