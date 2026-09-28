@@ -60,13 +60,13 @@ export function Features() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 mb-3">
             <span>Built For Performance</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 dark:text-white tracking-tight">
             Why Choose Remove Backgrounds Online
           </h2>
-          <p className="mt-3 text-neutral-400 text-sm sm:text-base max-w-xl mx-auto">
+          <p className="mt-3 text-neutral-600 dark:text-neutral-400 text-sm sm:text-base max-w-xl mx-auto">
             High-performance AI designed to remove backgrounds from portraits, products, and graphics with zero quality loss.
           </p>
         </div>
@@ -78,15 +78,15 @@ export function Features() {
             return (
               <div
                 key={idx}
-                className="rounded-2xl p-6 relative overflow-hidden bg-[#151817] border border-neutral-800 hover:border-neutral-700 transition-colors group"
+                className="rounded-2xl p-6 relative overflow-hidden bg-[#f3f5f4] dark:bg-[#151817] border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors group"
               >
                 <div
                   className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-5 ${feat.bgColor} transition-transform group-hover:scale-105`}
                 >
-                  <Icon className={`w-6 h-6 ${feat.color}`} />
+                  <Icon className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{feat.title}</h3>
-                <p className="text-sm text-neutral-400 leading-relaxed">
+                <h3 className="text-lg font-bold text-neutral-900 dark:text-white mb-2">{feat.title}</h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                   {feat.description}
                 </p>
               </div>

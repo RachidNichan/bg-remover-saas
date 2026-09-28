@@ -16,6 +16,7 @@ import {
   UserCheck,
 } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Remove Backgrounds Online",
@@ -30,29 +31,32 @@ export default function PrivacyPolicyPage() {
   const lastUpdated = "September 28, 2026";
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0c0e0d] text-neutral-100">
+    <div className="min-h-screen flex flex-col bg-white text-neutral-900 dark:bg-[#0c0e0d] dark:text-neutral-100 transition-colors duration-150">
       {/* Top Header */}
-      <header className="sticky top-0 z-40 w-full border-b border-neutral-800 bg-[#0c0e0d]/90 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 w-full border-b border-neutral-200 dark:border-neutral-800 bg-white/95 dark:bg-[#0c0e0d]/90 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link
             href="/"
             className="flex items-center gap-2.5 group transition-transform hover:scale-[1.02]"
           >
             <div className="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-emerald-400" />
+              <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
             </div>
-            <span className="font-bold text-base tracking-tight text-white">
-              Remove Backgrounds<span className="text-emerald-400"> Online</span>
+            <span className="font-bold text-base tracking-tight text-neutral-900 dark:text-white">
+              Remove Backgrounds<span className="text-emerald-600 dark:text-emerald-400"> Online</span>
             </span>
           </Link>
 
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-[#151817] border border-neutral-800 text-neutral-300 hover:text-white hover:border-neutral-700 transition-colors"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Back to App</span>
-          </Link>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-neutral-100 hover:bg-neutral-200 dark:bg-[#151817] dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span>Back to App</span>
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -60,29 +64,29 @@ export default function PrivacyPolicyPage() {
       <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         {/* Page Hero */}
         <div className="mb-10 text-center sm:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 mb-4">
-            <Lock className="w-3.5 h-3.5 text-emerald-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-400 mb-4">
+            <Lock className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
             <span>Data Protection &amp; Confidentiality</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900 dark:text-white">
             Privacy Policy
           </h1>
-          <p className="mt-3 text-sm text-neutral-400 flex items-center gap-2 justify-center sm:justify-start">
-            <Clock className="w-4 h-4 text-neutral-500" />
+          <p className="mt-3 text-sm text-neutral-600 dark:text-neutral-400 flex items-center gap-2 justify-center sm:justify-start">
+            <Clock className="w-4 h-4 text-neutral-400 dark:text-neutral-500" />
             <span>Last Updated: {lastUpdated}</span>
           </p>
         </div>
 
         {/* Core Privacy Pillar Callout */}
-        <div className="p-6 rounded-2xl bg-[#151817] border border-neutral-800 mb-10 text-xs sm:text-sm text-neutral-300 leading-relaxed space-y-3">
-          <div className="flex items-center gap-2 text-white font-bold text-base sm:text-lg text-emerald-300">
-            <ShieldCheck className="w-6 h-6 text-emerald-400 shrink-0" />
+        <div className="p-6 rounded-2xl bg-[#f3f5f4] dark:bg-[#151817] border border-neutral-200 dark:border-neutral-800 mb-10 text-xs sm:text-sm text-neutral-700 dark:text-neutral-300 leading-relaxed space-y-3">
+          <div className="flex items-center gap-2 text-neutral-900 dark:text-white font-bold text-base sm:text-lg text-emerald-700 dark:text-emerald-300">
+            <ShieldCheck className="w-6 h-6 text-emerald-600 dark:text-emerald-400 shrink-0" />
             <span>Our Uncompromising Privacy Guarantee: Zero Image Storage</span>
           </div>
           <p>
             When you upload an image to <strong>Remove Backgrounds Online</strong>:
           </p>
-          <ul className="list-disc pl-5 space-y-1.5 text-neutral-200">
+          <ul className="list-disc pl-5 space-y-1.5 text-neutral-700 dark:text-neutral-200">
             <li>
               <strong>100% In-Memory RAM Processing:</strong> Your picture is decoded in temporary volatile RAM, processed by our neural network model, and converted into a transparent PNG.
             </li>
@@ -99,17 +103,17 @@ export default function PrivacyPolicyPage() {
         </div>
 
         {/* Policy Sections */}
-        <article className="space-y-10 text-sm leading-relaxed text-neutral-300">
+        <article className="space-y-10 text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
           {/* Section 1 */}
           <section id="introduction" className="scroll-mt-24">
-            <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-              <Globe className="w-5 h-5 text-emerald-400" />
+            <h2 className="text-xl font-bold text-neutral-900 dark:text-white mb-3 flex items-center gap-2">
+              <Globe className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               <span>1. Introduction</span>
             </h2>
             <p className="mb-3">
               This Privacy Policy explains how Remove Backgrounds Online (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;)
               collects, uses, and safeguards information when you visit{" "}
-              <strong className="text-white">https://removebackgrounds.online</strong>.
+              <strong className="text-neutral-900 dark:text-white">https://removebackgrounds.online</strong>.
             </p>
             <p>
               We believe privacy is a fundamental human right. Our architecture is deliberately designed so that
@@ -119,46 +123,46 @@ export default function PrivacyPolicyPage() {
 
           {/* Section 2 */}
           <section id="data-collected" className="scroll-mt-24">
-            <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-              <Database className="w-5 h-5 text-emerald-400" />
+            <h2 className="text-xl font-bold text-neutral-900 dark:text-white mb-3 flex items-center gap-2">
+              <Database className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               <span>2. Information We Collect</span>
             </h2>
             <p className="mb-3">We collect information in the following categories:</p>
 
             <div className="space-y-4">
-              <div className="p-4 rounded-xl bg-[#151817] border border-neutral-800">
-                <h3 className="font-semibold text-white mb-1 flex items-center gap-2">
-                  <UserCheck className="w-4 h-4 text-emerald-400" />
+              <div className="p-4 rounded-xl bg-[#f3f5f4] dark:bg-[#151817] border border-neutral-200 dark:border-neutral-800">
+                <h3 className="font-semibold text-neutral-900 dark:text-white mb-1 flex items-center gap-2">
+                  <UserCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>Account Information (Registered Users Only)</span>
                 </h3>
-                <p className="text-xs text-neutral-400">
+                <p className="text-xs text-neutral-600 dark:text-neutral-400">
                   When you sign in using Google OAuth or email credentials via Firebase Authentication, we receive:
                 </p>
-                <ul className="list-disc pl-5 mt-2 space-y-1 text-xs text-neutral-300">
+                <ul className="list-disc pl-5 mt-2 space-y-1 text-xs text-neutral-700 dark:text-neutral-300">
                   <li>Your Google account email address and unique User ID (UID).</li>
                   <li>Your public profile display name and profile picture URL (if provided by Google).</li>
                   <li>Account creation timestamp and processed image counter stored in Cloud Firestore.</li>
                 </ul>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#151817] border border-neutral-800">
-                <h3 className="font-semibold text-white mb-1 flex items-center gap-2">
-                  <EyeOff className="w-4 h-4 text-emerald-400" />
+              <div className="p-4 rounded-xl bg-[#f3f5f4] dark:bg-[#151817] border border-neutral-200 dark:border-neutral-800">
+                <h3 className="font-semibold text-neutral-900 dark:text-white mb-1 flex items-center gap-2">
+                  <EyeOff className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>Uploaded Image Data (Ephemeral Only)</span>
                 </h3>
-                <p className="text-xs text-neutral-400">
+                <p className="text-xs text-neutral-600 dark:text-neutral-400">
                   Image files (JPG, PNG, WEBP) uploaded for background removal are held temporarily in volatile memory
                   (RAM) solely for the runtime duration of the background segmentation algorithm. They are never written
                   to persistent storage or linked to your personal identity.
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-[#151817] border border-neutral-800">
-                <h3 className="font-semibold text-white mb-1 flex items-center gap-2">
-                  <Cpu className="w-4 h-4 text-emerald-400" />
+              <div className="p-4 rounded-xl bg-[#f3f5f4] dark:bg-[#151817] border border-neutral-200 dark:border-neutral-800">
+                <h3 className="font-semibold text-neutral-900 dark:text-white mb-1 flex items-center gap-2">
+                  <Cpu className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>Technical &amp; Log Data</span>
                 </h3>
-                <p className="text-xs text-neutral-400">
+                <p className="text-xs text-neutral-600 dark:text-neutral-400">
                   Standard web server logs may temporarily record anonymous technical metrics including IP address,
                   browser type, referral headers, and HTTP response codes. These logs are used solely for DDoS mitigation,
                   rate-limiting enforcement, and server health monitoring.
@@ -266,8 +270,8 @@ export default function PrivacyPolicyPage() {
 
           {/* Section 8 */}
           <section id="children" className="scroll-mt-24">
-            <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-              <EyeOff className="w-5 h-5 text-neutral-400" />
+            <h2 className="text-xl font-bold text-neutral-900 dark:text-white mb-3 flex items-center gap-2">
+              <EyeOff className="w-5 h-5 text-neutral-500 dark:text-neutral-400" />
               <span>8. Children&apos;s Privacy</span>
             </h2>
             <p>
@@ -278,18 +282,18 @@ export default function PrivacyPolicyPage() {
           </section>
 
           {/* Section 9 */}
-          <section id="contact" className="scroll-mt-24 p-6 rounded-2xl bg-[#151817] border border-neutral-800">
-            <h2 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-              <Mail className="w-5 h-5 text-emerald-400" />
+          <section id="contact" className="scroll-mt-24 p-6 rounded-2xl bg-[#f3f5f4] dark:bg-[#151817] border border-neutral-200 dark:border-neutral-800">
+            <h2 className="text-lg font-bold text-neutral-900 dark:text-white mb-2 flex items-center gap-2">
+              <Mail className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               <span>9. Contact Our Data Protection Officer</span>
             </h2>
-            <p className="text-xs sm:text-sm text-neutral-400">
+            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
               If you have any questions, concerns, or requests regarding this Privacy Policy or our zero-retention data
               practices, please contact us:
             </p>
-            <div className="mt-3 text-xs sm:text-sm font-medium text-neutral-200">
-              <p>Email: <a href="mailto:privacy@removebackgrounds.online" className="text-emerald-400 hover:text-emerald-300 underline">privacy@removebackgrounds.online</a></p>
-              <p>Support: <a href="mailto:support@removebackgrounds.online" className="text-emerald-400 hover:text-emerald-300 underline">support@removebackgrounds.online</a></p>
+            <div className="mt-3 text-xs sm:text-sm font-medium text-neutral-800 dark:text-neutral-200">
+              <p>Email: <a href="mailto:privacy@removebackgrounds.online" className="text-emerald-600 dark:text-emerald-400 hover:underline">privacy@removebackgrounds.online</a></p>
+              <p>Support: <a href="mailto:support@removebackgrounds.online" className="text-emerald-600 dark:text-emerald-400 hover:underline">support@removebackgrounds.online</a></p>
             </div>
           </section>
         </article>

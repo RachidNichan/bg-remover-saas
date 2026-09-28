@@ -1,7 +1,20 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
+    --background: #ffffff;
+    --foreground: #171a19;
+    --muted: #5e6662;
+    --card: #f3f5f4;
+    --card-border: #e2e6e4;
+    --primary: #10b981;
+    --primary-hover: #059669;
+    --accent-emerald: #10b981;
+  }
+
+  .dark {
     --background: #0c0e0d;
     --foreground: #f4f5f4;
     --muted: #9ba39f;
@@ -45,18 +58,18 @@
 
 /* Clean panel and card utility classes - no glow */
 .glass-panel {
-  background: #141716;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: var(--card);
+  border: 1px solid var(--card-border);
 }
 
 .glass-card {
-  background: #151817;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  transition: border-color 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(16, 185, 129, 0.35);
+  border-color: rgba(16, 185, 129, 0.4);
   transform: translateY(-2px);
 }
 
@@ -66,12 +79,18 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0c0e0d;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #232826;
+  background: #cbd5e1;
   border-radius: 3px;
 }
+.dark ::-webkit-scrollbar-thumb {
+  background: #232826;
+}
 ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
   background: #333a37;
 }

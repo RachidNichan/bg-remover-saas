@@ -65,12 +65,12 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="w-full max-w-md rounded-3xl p-6 sm:p-8 border border-neutral-800 bg-[#151817] relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 dark:bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="w-full max-w-md rounded-3xl p-6 sm:p-8 border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#151817] relative shadow-xl transition-colors duration-150">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-xl text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors cursor-pointer"
+          className="absolute top-5 right-5 p-2 rounded-xl text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:text-white dark:hover:bg-neutral-800 transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -78,12 +78,12 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         {/* Modal Header */}
         <div className="text-center mb-6">
           <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center mx-auto mb-3">
-            <Sparkles className="w-5 h-5 text-emerald-400" />
+            <Sparkles className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
           </div>
-          <h3 className="text-xl font-bold text-white">
+          <h3 className="text-xl font-bold text-neutral-900 dark:text-white">
             {mode === "signin" ? "Welcome Back" : "Create Free Account"}
           </h3>
-          <p className="text-xs text-neutral-400 mt-1">
+          <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
             {mode === "signin"
               ? "Sign in to access your processed history & account settings"
               : "Create a free account to start removing backgrounds instantly"}
@@ -91,7 +91,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         </div>
 
         {/* Mode Switch Tabs */}
-        <div className="flex rounded-xl bg-[#101211] p-1 mb-5 border border-neutral-800 text-xs font-semibold">
+        <div className="flex rounded-xl bg-[#f3f5f4] dark:bg-[#101211] p-1 mb-5 border border-neutral-200 dark:border-neutral-800 text-xs font-semibold">
           <button
             type="button"
             onClick={() => {
@@ -101,7 +101,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             className={`flex-1 py-2 rounded-lg transition-colors cursor-pointer ${
               mode === "signin"
                 ? "bg-emerald-600 text-white"
-                : "text-neutral-400 hover:text-white"
+                : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
             }`}
           >
             Sign In
@@ -115,7 +115,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             className={`flex-1 py-2 rounded-lg transition-colors cursor-pointer ${
               mode === "signup"
                 ? "bg-emerald-600 text-white"
-                : "text-neutral-400 hover:text-white"
+                : "text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
             }`}
           >
             Create Account
@@ -124,12 +124,12 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
         {/* Firebase Config Notice if using simulated keys */}
         {!isFirebaseConfigured && (
-          <div className="mb-4 p-3 rounded-xl bg-emerald-950/30 border border-emerald-500/30 text-emerald-200 text-xs flex flex-col gap-2">
-            <div className="flex items-center gap-1.5 font-semibold text-emerald-300">
+          <div className="mb-4 p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-500/30 text-emerald-800 dark:text-emerald-200 text-xs flex flex-col gap-2">
+            <div className="flex items-center gap-1.5 font-semibold text-emerald-700 dark:text-emerald-300">
               <Sparkles className="w-4 h-4" />
               <span>Instant Test Mode Available</span>
             </div>
-            <p className="text-[11px] text-emerald-300/80">
+            <p className="text-[11px] text-emerald-600 dark:text-emerald-300/80">
               Firebase credentials in .env are in demo mode. You can sign in with one click below or type any credentials:
             </p>
             <button
@@ -144,8 +144,8 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
         {/* Error message */}
         {error && (
-          <div className="mb-4 p-3 rounded-xl bg-red-950/60 border border-red-500/30 text-red-200 text-xs flex items-center gap-2">
-            <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+          <div className="mb-4 p-3 rounded-xl bg-red-50 dark:bg-red-950/60 border border-red-200 dark:border-red-500/30 text-red-800 dark:text-red-200 text-xs flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0" />
             <span>{error}</span>
           </div>
         )}
@@ -155,7 +155,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
           type="button"
           onClick={handleGoogle}
           disabled={loading}
-          className="w-full py-2.5 px-4 rounded-xl bg-[#101211] hover:bg-neutral-800 border border-neutral-800 text-white text-xs font-semibold flex items-center justify-center gap-2.5 transition-colors cursor-pointer mb-4 hover:border-neutral-700"
+          className="w-full py-2.5 px-4 rounded-xl bg-[#f3f5f4] hover:bg-neutral-200 dark:bg-[#101211] dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-800 dark:text-white text-xs font-semibold flex items-center justify-center gap-2.5 transition-colors cursor-pointer mb-4 hover:border-neutral-400 dark:hover:border-neutral-700"
         >
           <svg className="w-4 h-4" viewBox="0 0 24 24">
             <path
@@ -180,9 +180,9 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
         <div className="relative my-4 text-center">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-neutral-800" />
+            <div className="w-full border-t border-neutral-200 dark:border-neutral-800" />
           </div>
-          <span className="relative px-3 bg-[#151817] text-[11px] text-neutral-500 font-medium">
+          <span className="relative px-3 bg-white dark:bg-[#151817] text-[11px] text-neutral-500 font-medium">
             or with email
           </span>
         </div>
@@ -190,28 +190,28 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         {/* Email & Password Form */}
         <form onSubmit={handleSubmit} className="space-y-3.5">
           <div>
-            <label className="block text-[11px] font-semibold text-neutral-300 mb-1">
+            <label className="block text-[11px] font-semibold text-neutral-700 dark:text-neutral-300 mb-1">
               Email Address
             </label>
             <div className="relative">
-              <Mail className="w-4 h-4 text-neutral-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Mail className="w-4 h-4 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@domain.com"
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#101211] border border-neutral-800 text-white text-xs placeholder:text-neutral-600 focus:outline-none focus:border-emerald-500 transition-colors"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white dark:bg-[#101211] border border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-white text-xs placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-emerald-500 transition-colors"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-[11px] font-semibold text-neutral-300 mb-1">
+            <label className="block text-[11px] font-semibold text-neutral-700 dark:text-neutral-300 mb-1">
               Password
             </label>
             <div className="relative">
-              <Lock className="w-4 h-4 text-neutral-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <Lock className="w-4 h-4 text-neutral-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="password"
                 required
@@ -219,7 +219,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#101211] border border-neutral-800 text-white text-xs placeholder:text-neutral-600 focus:outline-none focus:border-emerald-500 transition-colors"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white dark:bg-[#101211] border border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-white text-xs placeholder:text-neutral-400 dark:placeholder:text-neutral-600 focus:outline-none focus:border-emerald-500 transition-colors"
               />
             </div>
           </div>
@@ -238,7 +238,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             <Link
               href="/terms"
               onClick={onClose}
-              className="text-neutral-400 hover:text-emerald-400 underline"
+              className="text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 dark:hover:text-emerald-400 underline"
             >
               Terms of Service
             </Link>{" "}
@@ -246,7 +246,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             <Link
               href="/privacy"
               onClick={onClose}
-              className="text-neutral-400 hover:text-emerald-400 underline"
+              className="text-neutral-600 dark:text-neutral-400 hover:text-emerald-600 dark:hover:text-emerald-400 underline"
             >
               Privacy Policy
             </Link>

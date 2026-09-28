@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const siteUrl = process.env.NEXT_PUBLIC_APP_URL || "https://removebackgrounds.online";
 
@@ -149,15 +150,34 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark h-full antialiased scroll-smooth">
+    <html lang="en" suppressHydrationWarning className="h-full antialiased scroll-smooth">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var stored = localStorage.getItem('theme');
+                  var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  if (stored === 'dark' || (!stored && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#090a0f] text-slate-100 selection:bg-indigo-500 selection:text-white">
-        <AuthProvider>{children}</AuthProvider>
+      <body className="min-h-full flex flex-col bg-white text-neutral-900 dark:bg-[#0c0e0d] dark:text-neutral-100 selection:bg-emerald-500 selection:text-white transition-colors duration-150">
+        <ThemeProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

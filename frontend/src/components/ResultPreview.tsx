@@ -94,15 +94,15 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
   return (
     <section className="py-12 md:py-16 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="rounded-3xl p-6 sm:p-10 border border-neutral-800 bg-[#151817]">
+        <div className="rounded-3xl p-6 sm:p-10 border border-neutral-200 dark:border-neutral-800 bg-[#f3f5f4] dark:bg-[#151817] transition-colors duration-150">
           {/* Top Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-neutral-800">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-neutral-200 dark:border-neutral-800">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 mb-2">
                 <Check className="w-3.5 h-3.5" />
                 <span>Background Successfully Erased</span>
               </div>
-              <h2 className="text-2xl font-bold text-white tracking-tight">
+              <h2 className="text-2xl font-bold text-neutral-900 dark:text-white tracking-tight">
                 Your HD Cutout is Ready
               </h2>
             </div>
@@ -110,17 +110,17 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setViewMode(viewMode === "cutout" ? "sideBySide" : "cutout")}
-                className="px-3.5 py-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-xs text-neutral-300 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5"
+                className="px-3.5 py-2 rounded-xl bg-white hover:bg-neutral-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-xs text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors cursor-pointer flex items-center gap-1.5"
               >
-                <Layers className="w-3.5 h-3.5 text-emerald-400" />
+                <Layers className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 <span>{viewMode === "cutout" ? "Side by Side View" : "Cutout Only"}</span>
               </button>
 
               <button
                 onClick={onReset}
-                className="px-3.5 py-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-xs text-neutral-300 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5"
+                className="px-3.5 py-2 rounded-xl bg-white hover:bg-neutral-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-xs text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors cursor-pointer flex items-center gap-1.5"
               >
-                <RotateCcw className="w-3.5 h-3.5 text-emerald-400" />
+                <RotateCcw className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                 <span>Upload Another</span>
               </button>
             </div>
@@ -130,7 +130,7 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
           <div className="mt-8">
             {viewMode === "cutout" ? (
               <div
-                className={`relative aspect-square max-h-[500px] w-full mx-auto rounded-2xl overflow-hidden border border-neutral-800 flex items-center justify-center transition-colors ${
+                className={`relative aspect-square max-h-[500px] w-full mx-auto rounded-2xl overflow-hidden border border-neutral-300 dark:border-neutral-800 flex items-center justify-center transition-colors ${
                   isCustom ? "" : selectedBg.class
                 }`}
                 style={isCustom ? { backgroundColor: customColor } : {}}
@@ -146,10 +146,10 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Original */}
                 <div className="flex flex-col gap-2">
-                  <span className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                  <span className="text-xs font-semibold text-neutral-600 dark:text-neutral-400 uppercase tracking-wider">
                     Original Image
                   </span>
-                  <div className="aspect-square rounded-2xl overflow-hidden bg-[#101211] border border-neutral-800 flex items-center justify-center">
+                  <div className="aspect-square rounded-2xl overflow-hidden bg-neutral-100 dark:bg-[#101211] border border-neutral-300 dark:border-neutral-800 flex items-center justify-center">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={result.originalUrl}
@@ -161,11 +161,11 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
 
                 {/* Processed */}
                 <div className="flex flex-col gap-2">
-                  <span className="text-xs font-semibold text-emerald-400 uppercase tracking-wider flex items-center gap-1">
+                  <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider flex items-center gap-1">
                     <Sparkles className="w-3.5 h-3.5" /> Clean AI Cutout
                   </span>
                   <div
-                    className={`aspect-square rounded-2xl overflow-hidden border border-neutral-800 flex items-center justify-center ${
+                    className={`aspect-square rounded-2xl overflow-hidden border border-neutral-300 dark:border-neutral-800 flex items-center justify-center ${
                       isCustom ? "" : selectedBg.class
                     }`}
                     style={isCustom ? { backgroundColor: customColor } : {}}
@@ -183,9 +183,9 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
           </div>
 
           {/* Background Replacement Bar */}
-          <div className="mt-6 p-4 rounded-2xl bg-[#181c1a] border border-neutral-800 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-2 text-xs font-semibold text-neutral-300">
-              <Palette className="w-4 h-4 text-emerald-400" />
+          <div className="mt-6 p-4 rounded-2xl bg-white dark:bg-[#181c1a] border border-neutral-300 dark:border-neutral-800 flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-2 text-xs font-semibold text-neutral-800 dark:text-neutral-300">
+              <Palette className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span>Replace Background:</span>
             </div>
 
@@ -199,17 +199,17 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
                   }}
                   className={`px-3 py-1.5 rounded-xl text-xs font-medium border transition-all cursor-pointer flex items-center gap-2 ${
                     !isCustom && selectedBg.id === preset.id
-                      ? "border-emerald-500 text-emerald-300 bg-neutral-800"
-                      : "border-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-800"
+                      ? "border-emerald-500 text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-neutral-800"
+                      : "border-neutral-300 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800"
                   }`}
                 >
-                  <span className={`w-3.5 h-3.5 rounded-full border border-white/20 ${preset.class}`} />
+                  <span className={`w-3.5 h-3.5 rounded-full border border-black/10 dark:border-white/20 ${preset.class}`} />
                   <span>{preset.name}</span>
                 </button>
               ))}
 
               {/* Custom Color Picker */}
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl border border-neutral-800 bg-[#151817]">
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#151817]">
                 <input
                   type="color"
                   value={customColor}
@@ -220,45 +220,45 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
                   className="w-5 h-5 rounded cursor-pointer border-none bg-transparent"
                   title="Pick a custom solid color"
                 />
-                <span className="text-[11px] text-neutral-400 font-mono">{customColor}</span>
+                <span className="text-[11px] text-neutral-600 dark:text-neutral-400 font-mono">{customColor}</span>
               </div>
             </div>
           </div>
 
           {/* Metrics & Performance Info */}
-          <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-neutral-400">
-            <div className="p-3 rounded-xl bg-[#181c1a] border border-neutral-800 flex items-center gap-2">
-              <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
+          <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-neutral-600 dark:text-neutral-400">
+            <div className="p-3 rounded-xl bg-white dark:bg-[#181c1a] border border-neutral-300 dark:border-neutral-800 flex items-center gap-2">
+              <Clock className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <div>
-                <p className="text-white font-semibold">{result.processingTimeSeconds}s</p>
-                <p className="text-[11px]">Processing Time</p>
+                <p className="text-neutral-900 dark:text-white font-semibold">{result.processingTimeSeconds}s</p>
+                <p className="text-[11px] text-neutral-500 dark:text-neutral-400">Processing Time</p>
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-[#181c1a] border border-neutral-800 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-emerald-400 shrink-0" />
+            <div className="p-3 rounded-xl bg-white dark:bg-[#181c1a] border border-neutral-300 dark:border-neutral-800 flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <div>
-                <p className="text-white font-semibold">
+                <p className="text-neutral-900 dark:text-white font-semibold">
                   {formatBytes(result.processedSizeBytes)}
                 </p>
-                <p className="text-[11px]">Lossless PNG Size</p>
+                <p className="text-[11px] text-neutral-500 dark:text-neutral-400">Lossless PNG Size</p>
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-[#181c1a] border border-neutral-800 col-span-2 sm:col-span-1 flex items-center gap-2">
-              <Check className="w-4 h-4 text-emerald-400 shrink-0" />
+            <div className="p-3 rounded-xl bg-white dark:bg-[#181c1a] border border-neutral-300 dark:border-neutral-800 col-span-2 sm:col-span-1 flex items-center gap-2">
+              <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <div>
-                <p className="text-white font-semibold">100% In-Memory</p>
-                <p className="text-[11px]">Zero Disk Leaks</p>
+                <p className="text-neutral-900 dark:text-white font-semibold">100% In-Memory</p>
+                <p className="text-[11px] text-neutral-500 dark:text-neutral-400">Zero Disk Leaks</p>
               </div>
             </div>
           </div>
 
           {/* Download & Sharing CTAs */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-end gap-3 pt-6 border-t border-neutral-800">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-end gap-3 pt-6 border-t border-neutral-200 dark:border-neutral-800">
             <button
               onClick={copyImageToClipboard}
-              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-200 text-sm font-semibold transition-colors cursor-pointer"
+              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white hover:bg-neutral-100 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-800 dark:text-neutral-200 text-sm font-semibold transition-colors cursor-pointer"
             >
               {copied ? "✓ Copied to Clipboard" : "Copy to Clipboard"}
             </button>
