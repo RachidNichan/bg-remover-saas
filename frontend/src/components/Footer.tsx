@@ -19,8 +19,8 @@ export function Footer() {
           </Link>
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-neutral-600 dark:text-neutral-400">
-            <Link href="/#uploader" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
-              Online Remover
+            <Link href="/remove-background" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              Remove Background
             </Link>
             <Link href="/#how-it-works" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
               How It Works

@@ -30,24 +30,12 @@ export function Navbar({ onOpenAuth }: NavbarProps) {
         </Link>
 
         {/* Navigation Links */}
-        <nav className="hidden md:flex items-center gap-5 text-sm font-medium text-neutral-600 dark:text-neutral-400">
-          <Link href="/#how-it-works" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
-            How It Works
-          </Link>
-          <Link href="/#features" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
-            Features
-          </Link>
-          <Link href="/about" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
-            About
-          </Link>
-          <Link href="/help" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
-            Help
+        <nav className="hidden sm:flex items-center gap-6 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+          <Link href="/remove-background" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+            Remove Background
           </Link>
           <Link href="/faq" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
             FAQ
-          </Link>
-          <Link href="/contact" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
-            Contact
           </Link>
         </nav>
 
