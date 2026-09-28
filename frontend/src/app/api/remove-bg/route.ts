@@ -1,10 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkRateLimit } from "@/lib/rateLimit";
 
 export const maxDuration = 60; // Allow sufficient time for large image processing
 export const dynamic = "force-dynamic";
 
 export async function POST(request: NextRequest) {
   try {
+    // 1. Enforce rate limiting per client IP to block bots and abusive traffic
+    const rateLimit = checkRateLimit(request);
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        {
+          error:
+            rateLimit.error ||
+            "Rate limit exceeded: Too many requests. Please wait a moment before trying again.",
+          retryAfter: rateLimit.retryAfterSeconds,
+        },
+        {
+          status: 429,
+          headers: {
+            "Retry-After": String(rateLimit.retryAfterSeconds),
+            "X-RateLimit-Limit": String(rateLimit.limit),
+            "X-RateLimit-Remaining": "0",
+            "X-RateLimit-Reset": String(rateLimit.resetSeconds),
+          },
+        }
+      );
+    }
+
     const backendUrl =
       process.env.AI_BACKEND_URL || "http://localhost:8000";
 
@@ -93,9 +116,17 @@ export async function POST(request: NextRequest) {
 
     const responseContentType = backendResponse.headers.get("content-type") || "";
 
+    const rateLimitHeaders = {
+      "X-RateLimit-Limit": String(rateLimit.limit),
+      "X-RateLimit-Remaining": String(rateLimit.remaining),
+      "X-RateLimit-Reset": String(rateLimit.resetSeconds),
+    };
+
     if (responseContentType.includes("application/json")) {
       const data = await backendResponse.json();
-      return NextResponse.json(data);
+      return NextResponse.json(data, {
+        headers: rateLimitHeaders,
+      });
     }
 
     // Stream the transparent PNG image back
@@ -110,6 +141,7 @@ export async function POST(request: NextRequest) {
         "X-Content-Type-Options": "nosniff",
         "X-Process-Time": processTime,
         "Cache-Control": "no-store, max-age=0",
+        ...rateLimitHeaders,
       },
     });
   } catch (error: any) {

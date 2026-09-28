@@ -1,5 +1,7 @@
 import base64
 import logging
+import time
+from collections import defaultdict
 from contextlib import asynccontextmanager
 from typing import Optional
 
@@ -26,6 +28,36 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
 )
 logger = logging.getLogger("bg_remover_api")
+
+# Rate Limiter Configuration: 20 requests per 60 seconds per IP
+RATE_LIMIT_WINDOW_SECONDS = 60.0
+MAX_BACKEND_REQUESTS_PER_MINUTE = 20
+ip_request_history: dict[str, list[float]] = defaultdict(list)
+last_backend_cleanup = time.time()
+
+def check_backend_rate_limit(ip: str) -> tuple[bool, int]:
+    global last_backend_cleanup
+    now = time.time()
+
+    # Periodic garbage collection every 2 minutes
+    if now - last_backend_cleanup > 120.0:
+        for client_ip in list(ip_request_history.keys()):
+            ip_request_history[client_ip] = [
+                t for t in ip_request_history[client_ip] if now - t < RATE_LIMIT_WINDOW_SECONDS
+            ]
+            if not ip_request_history[client_ip]:
+                del ip_request_history[client_ip]
+        last_backend_cleanup = now
+
+    timestamps = [t for t in ip_request_history[ip] if now - t < RATE_LIMIT_WINDOW_SECONDS]
+    if len(timestamps) >= MAX_BACKEND_REQUESTS_PER_MINUTE:
+        oldest = timestamps[0]
+        retry_after = max(1, int(oldest + RATE_LIMIT_WINDOW_SECONDS - now))
+        return False, retry_after
+
+    timestamps.append(now)
+    ip_request_history[ip] = timestamps
+    return True, 0
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -97,6 +129,25 @@ async def remove_background(
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail="AI model is not ready. Please try again in a few moments.",
+        )
+
+    # Rate limit check to protect AI engine against bot spam and DDoS
+    forwarded = request.headers.get("x-forwarded-for")
+    if forwarded:
+        client_ip = forwarded.split(",")[0].strip()
+    else:
+        client_ip = request.headers.get("x-real-ip") or (request.client.host if request.client else "127.0.0.1")
+
+    allowed, retry_after = check_backend_rate_limit(client_ip)
+    if not allowed:
+        logger.warning(f"Backend rate limit triggered for client: {client_ip}")
+        return JSONResponse(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            content={
+                "error": f"Rate limit exceeded: Bot and overload protection is active. Please retry in {retry_after} seconds.",
+                "retry_after": retry_after,
+            },
+            headers={"Retry-After": str(retry_after)},
         )
 
     image_bytes = None
