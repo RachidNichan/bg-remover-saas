@@ -47,27 +47,9 @@ export function Footer() {
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-neutral-500 dark:text-neutral-500">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <p>
-              © {new Date().getFullYear()} Remove Backgrounds Online. All rights reserved.
-            </p>
-            <span className="text-neutral-300 dark:text-neutral-800 hidden sm:inline">•</span>
-            <Link href="/about" className="hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors">
-              About
-            </Link>
-            <span className="text-neutral-300 dark:text-neutral-800">•</span>
-            <Link href="/contact" className="hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors">
-              Contact
-            </Link>
-            <span className="text-neutral-300 dark:text-neutral-800">•</span>
-            <Link href="/privacy" className="hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors">
-              Privacy
-            </Link>
-            <span className="text-neutral-300 dark:text-neutral-800">•</span>
-            <Link href="/terms" className="hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors">
-              Terms
-            </Link>
-          </div>
+          <p>
+            © {new Date().getFullYear()} Remove Backgrounds Online. All rights reserved.
+          </p>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1 text-neutral-600 dark:text-neutral-400">
               <Cpu className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
