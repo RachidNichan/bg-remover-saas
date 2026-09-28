@@ -46,14 +46,14 @@ export function FAQ() {
     <section id="faq" className="py-16 md:py-24 relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 mb-3">
-            <HelpCircle className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-3">
+            <HelpCircle className="w-3.5 h-3.5 text-emerald-400" />
             <span>Got Questions?</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="mt-2 text-slate-400 text-sm">
+          <p className="mt-2 text-neutral-400 text-sm">
             Everything you need to know about Remove Backgrounds Online, image processing, and privacy.
           </p>
         </div>
@@ -64,22 +64,22 @@ export function FAQ() {
             return (
               <div
                 key={idx}
-                className="glass-card rounded-2xl border border-slate-800/80 overflow-hidden transition-all"
+                className="rounded-2xl border border-neutral-800 bg-[#151817] overflow-hidden transition-colors hover:border-neutral-700"
               >
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full p-5 text-left flex items-center justify-between gap-4 text-sm font-semibold text-white hover:text-cyan-300 transition-colors cursor-pointer"
+                  className="w-full p-5 text-left flex items-center justify-between gap-4 text-sm font-semibold text-white hover:text-emerald-400 transition-colors cursor-pointer"
                 >
                   <span>{faq.q}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-cyan-400" : ""
+                    className={`w-4 h-4 text-neutral-400 shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-emerald-400" : ""
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-800/50">
+                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-neutral-400 leading-relaxed border-t border-neutral-800">
                     {faq.a}
                   </div>
                 )}

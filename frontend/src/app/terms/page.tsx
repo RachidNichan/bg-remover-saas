@@ -29,27 +29,25 @@ export default function TermsOfServicePage() {
   const lastUpdated = "September 28, 2026";
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#090a0f] text-slate-100">
+    <div className="min-h-screen flex flex-col bg-[#0c0e0d] text-neutral-100">
       {/* Top Header */}
-      <header className="sticky top-0 z-40 w-full glass-panel border-b border-white/10 bg-slate-950/90 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 w-full border-b border-neutral-800 bg-[#0c0e0d]/90 backdrop-blur-xl">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link
             href="/"
             className="flex items-center gap-2.5 group transition-transform hover:scale-[1.02]"
           >
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-cyan-400 p-[1.5px]">
-              <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-cyan-300" />
-              </div>
+            <div className="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center">
+              <Sparkles className="w-4 h-4 text-emerald-400" />
             </div>
-            <span className="font-bold text-base tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-200 bg-clip-text text-transparent">
-              Remove Backgrounds<span className="text-cyan-400"> Online</span>
+            <span className="font-bold text-base tracking-tight text-white">
+              Remove Backgrounds<span className="text-emerald-400"> Online</span>
             </span>
           </Link>
 
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-900 border border-slate-700/80 text-slate-300 hover:text-white hover:border-slate-600 transition-colors"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-[#151817] border border-neutral-800 text-neutral-300 hover:text-white hover:border-neutral-700 transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to App</span>
@@ -61,23 +59,23 @@ export default function TermsOfServicePage() {
       <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 py-12 md:py-16">
         {/* Page Hero */}
         <div className="mb-10 text-center sm:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 mb-4">
-            <Scale className="w-3.5 h-3.5 text-indigo-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 mb-4">
+            <Scale className="w-3.5 h-3.5 text-emerald-400" />
             <span>Legal Agreement</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white">
             Terms of Service
           </h1>
-          <p className="mt-3 text-sm text-slate-400 flex items-center gap-2 justify-center sm:justify-start">
-            <Clock className="w-4 h-4 text-slate-500" />
+          <p className="mt-3 text-sm text-neutral-400 flex items-center gap-2 justify-center sm:justify-start">
+            <Clock className="w-4 h-4 text-neutral-500" />
             <span>Last Updated: {lastUpdated}</span>
           </p>
         </div>
 
         {/* Quick Highlights Box */}
-        <div className="p-5 sm:p-6 rounded-2xl bg-indigo-950/30 border border-indigo-500/20 mb-10 text-xs sm:text-sm text-slate-300 leading-relaxed space-y-2">
+        <div className="p-5 sm:p-6 rounded-2xl bg-[#151817] border border-neutral-800 mb-10 text-xs sm:text-sm text-neutral-300 leading-relaxed space-y-2">
           <p className="font-semibold text-white flex items-center gap-2 text-sm sm:text-base">
-            <ShieldCheck className="w-5 h-5 text-cyan-400 shrink-0" />
+            <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
             <span>Summary of Key Principles</span>
           </p>
           <p>
@@ -92,11 +90,11 @@ export default function TermsOfServicePage() {
         </div>
 
         {/* Legal Sections */}
-        <article className="space-y-10 text-sm leading-relaxed text-slate-300">
+        <article className="space-y-10 text-sm leading-relaxed text-neutral-300">
           {/* Section 1 */}
           <section id="acceptance" className="scroll-mt-24">
             <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-              <FileText className="w-5 h-5 text-indigo-400" />
+              <FileText className="w-5 h-5 text-emerald-400" />
               <span>1. Acceptance of Terms</span>
             </h2>
             <p className="mb-3">
@@ -115,7 +113,7 @@ export default function TermsOfServicePage() {
           {/* Section 2 */}
           <section id="service-description" className="scroll-mt-24">
             <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-cyan-400" />
+              <Sparkles className="w-5 h-5 text-emerald-400" />
               <span>2. Description of the Service</span>
             </h2>
             <p className="mb-3">
@@ -158,7 +156,7 @@ export default function TermsOfServicePage() {
           {/* Section 4 */}
           <section id="intellectual-property" className="scroll-mt-24">
             <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-              <UserCheck className="w-5 h-5 text-purple-400" />
+              <UserCheck className="w-5 h-5 text-emerald-400" />
               <span>4. Intellectual Property &amp; Content Ownership</span>
             </h2>
             <p className="mb-3">
@@ -180,7 +178,7 @@ export default function TermsOfServicePage() {
           {/* Section 5 */}
           <section id="acceptable-use" className="scroll-mt-24">
             <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-              <Ban className="w-5 h-5 text-red-400" />
+              <Ban className="w-5 h-5 text-emerald-400" />
               <span>5. Acceptable Use Policy</span>
             </h2>
             <p className="mb-3">You expressly agree that you will NOT use the Service to:</p>
@@ -209,7 +207,7 @@ export default function TermsOfServicePage() {
           {/* Section 6 */}
           <section id="payments-refunds" className="scroll-mt-24">
             <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-cyan-400" />
+              <Sparkles className="w-5 h-5 text-emerald-400" />
               <span>6. 100% Free Service &amp; Future Upgrades</span>
             </h2>
             <p className="mb-3">
@@ -226,7 +224,7 @@ export default function TermsOfServicePage() {
           {/* Section 7 */}
           <section id="disclaimer" className="scroll-mt-24">
             <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-              <AlertTriangle className="w-5 h-5 text-amber-400" />
+              <AlertTriangle className="w-5 h-5 text-neutral-400" />
               <span>7. Disclaimer of Warranties (&quot;As-Is&quot;)</span>
             </h2>
             <p className="mb-3">
@@ -243,7 +241,7 @@ export default function TermsOfServicePage() {
           {/* Section 8 */}
           <section id="liability" className="scroll-mt-24">
             <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-              <Scale className="w-5 h-5 text-indigo-400" />
+              <Scale className="w-5 h-5 text-emerald-400" />
               <span>8. Limitation of Liability</span>
             </h2>
             <p>
@@ -257,7 +255,7 @@ export default function TermsOfServicePage() {
           {/* Section 9 */}
           <section id="modifications" className="scroll-mt-24">
             <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-              <Clock className="w-5 h-5 text-slate-400" />
+              <Clock className="w-5 h-5 text-neutral-400" />
               <span>9. Modifications to Terms</span>
             </h2>
             <p>
@@ -268,17 +266,17 @@ export default function TermsOfServicePage() {
           </section>
 
           {/* Section 10 */}
-          <section id="contact" className="scroll-mt-24 p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
+          <section id="contact" className="scroll-mt-24 p-6 rounded-2xl bg-[#151817] border border-neutral-800">
             <h2 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-              <HelpCircle className="w-5 h-5 text-cyan-400" />
+              <HelpCircle className="w-5 h-5 text-emerald-400" />
               <span>10. Contact Information</span>
             </h2>
-            <p className="text-xs sm:text-sm text-slate-400">
+            <p className="text-xs sm:text-sm text-neutral-400">
               For legal inquiries, terms clarification, or copyright concerns, please reach out to:
             </p>
-            <div className="mt-3 text-xs sm:text-sm font-medium text-slate-200">
-              <p>Email: <a href="mailto:support@removebackgrounds.online" className="text-indigo-400 hover:text-indigo-300 underline">support@removebackgrounds.online</a></p>
-              <p>Website: <a href="https://removebackgrounds.online" className="text-indigo-400 hover:text-indigo-300 underline">https://removebackgrounds.online</a></p>
+            <div className="mt-3 text-xs sm:text-sm font-medium text-neutral-200">
+              <p>Email: <a href="mailto:support@removebackgrounds.online" className="text-emerald-400 hover:text-emerald-300 underline">support@removebackgrounds.online</a></p>
+              <p>Website: <a href="https://removebackgrounds.online" className="text-emerald-400 hover:text-emerald-300 underline">https://removebackgrounds.online</a></p>
             </div>
           </section>
         </article>

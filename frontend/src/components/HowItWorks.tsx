@@ -11,8 +11,8 @@ export function HowItWorks() {
       title: "1. Upload Your Image",
       description:
         "Drag and drop any JPG, PNG, or WEBP photo up to 10MB, browse your device, or paste directly from clipboard with Ctrl+V.",
-      color: "text-indigo-400",
-      bgColor: "bg-indigo-500/10 border-indigo-500/20",
+      color: "text-emerald-400",
+      bgColor: "bg-emerald-500/10 border-emerald-500/20",
     },
     {
       step: "02",
@@ -20,15 +20,15 @@ export function HowItWorks() {
       title: "2. Automatic AI Eraser",
       description:
         "Our neural network automatically detects foreground subjects, extracts complex hair strands, and erases the background in ~1.5s.",
-      color: "text-cyan-400",
-      bgColor: "bg-cyan-500/10 border-cyan-500/20",
+      color: "text-emerald-400",
+      bgColor: "bg-emerald-500/10 border-emerald-500/20",
     },
     {
       step: "03",
       icon: Download,
       title: "3. Download HD Cutout",
       description:
-        "Instantly download your full-resolution transparent PNG cutout, or replace the backdrop with studio white, dark, or vibrant colors.",
+        "Instantly download your full-resolution transparent PNG cutout, or replace the backdrop with studio white, dark, or neutral colors.",
       color: "text-emerald-400",
       bgColor: "bg-emerald-500/10 border-emerald-500/20",
     },
@@ -38,14 +38,14 @@ export function HowItWorks() {
     <section id="how-it-works" className="py-16 md:py-24 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-3">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Simple 3-Step Process</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
             How to Remove Backgrounds Online
           </h2>
-          <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
+          <p className="mt-3 text-neutral-400 text-sm sm:text-base max-w-2xl mx-auto">
             No design expertise, expensive software, or lasso tools needed. Get studio-grade cutouts directly in your web browser.
           </p>
         </div>
@@ -56,7 +56,7 @@ export function HowItWorks() {
             return (
               <div
                 key={idx}
-                className="glass-card rounded-2xl p-8 relative flex flex-col justify-between group"
+                className="rounded-2xl p-8 relative flex flex-col justify-between bg-[#151817] border border-neutral-800 hover:border-neutral-700 transition-colors group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
@@ -65,19 +65,19 @@ export function HowItWorks() {
                     >
                       <Icon className={`w-7 h-7 ${item.color}`} />
                     </div>
-                    <span className="text-3xl font-black text-slate-800 tracking-wider">
+                    <span className="text-3xl font-black text-neutral-700 tracking-wider">
                       {item.step}
                     </span>
                   </div>
 
                   <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">
+                  <p className="text-sm text-neutral-400 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-800/60 flex items-center text-xs font-semibold text-cyan-400">
-                  <span>Fast & 100% Free to Try</span>
+                <div className="mt-6 pt-4 border-t border-neutral-800 flex items-center text-xs font-semibold text-emerald-400">
+                  <span>Fast &amp; 100% Free to Use</span>
                 </div>
               </div>
             );

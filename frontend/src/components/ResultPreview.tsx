@@ -13,14 +13,14 @@ interface ResultPreviewProps {
 const BG_PRESETS = [
   { id: "transparent", name: "Transparent", class: "bg-checkerboard", color: "transparent" },
   { id: "white", name: "White", class: "bg-white", color: "#FFFFFF" },
-  { id: "black", name: "Studio Black", class: "bg-slate-950", color: "#020617" },
-  { id: "cyan", name: "Soft Cyan", class: "bg-cyan-100", color: "#cffafe" },
-  { id: "gradient", name: "Sunset", class: "bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600", color: "gradient" },
+  { id: "black", name: "Studio Black", class: "bg-[#0c0e0d]", color: "#0c0e0d" },
+  { id: "gray", name: "Neutral Gray", class: "bg-neutral-800", color: "#262626" },
+  { id: "emerald", name: "Emerald Tint", class: "bg-emerald-950", color: "#064e3b" },
 ];
 
 export function ResultPreview({ result, onReset }: ResultPreviewProps) {
   const [selectedBg, setSelectedBg] = useState(BG_PRESETS[0]);
-  const [customColor, setCustomColor] = useState<string>("#3b82f6");
+  const [customColor, setCustomColor] = useState<string>("#10b981");
   const [isCustom, setIsCustom] = useState<boolean>(false);
   const [viewMode, setViewMode] = useState<"cutout" | "sideBySide">("cutout");
   const [copied, setCopied] = useState<boolean>(false);
@@ -55,8 +55,6 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
         // Draw background
         ctx.fillStyle = isCustom
           ? customColor
-          : selectedBg.color === "gradient"
-          ? "#6366f1"
           : selectedBg.color;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         // Draw image
@@ -96,11 +94,11 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
   return (
     <section className="py-12 md:py-16 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="glass-panel rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl">
+        <div className="rounded-3xl p-6 sm:p-10 border border-neutral-800 bg-[#151817]">
           {/* Top Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-neutral-800">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 mb-2">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 mb-2">
                 <Check className="w-3.5 h-3.5" />
                 <span>Background Successfully Erased</span>
               </div>
@@ -112,17 +110,17 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setViewMode(viewMode === "cutout" ? "sideBySide" : "cutout")}
-                className="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs text-slate-300 hover:text-white transition-all cursor-pointer flex items-center gap-1.5"
+                className="px-3.5 py-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-xs text-neutral-300 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5"
               >
-                <Layers className="w-3.5 h-3.5 text-cyan-400" />
+                <Layers className="w-3.5 h-3.5 text-emerald-400" />
                 <span>{viewMode === "cutout" ? "Side by Side View" : "Cutout Only"}</span>
               </button>
 
               <button
                 onClick={onReset}
-                className="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs text-slate-300 hover:text-white transition-all cursor-pointer flex items-center gap-1.5"
+                className="px-3.5 py-2 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-xs text-neutral-300 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5"
               >
-                <RotateCcw className="w-3.5 h-3.5 text-indigo-400" />
+                <RotateCcw className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Upload Another</span>
               </button>
             </div>
@@ -132,7 +130,7 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
           <div className="mt-8">
             {viewMode === "cutout" ? (
               <div
-                className={`relative aspect-square max-h-[500px] w-full mx-auto rounded-2xl overflow-hidden border border-slate-700/80 shadow-inner flex items-center justify-center transition-colors ${
+                className={`relative aspect-square max-h-[500px] w-full mx-auto rounded-2xl overflow-hidden border border-neutral-800 flex items-center justify-center transition-colors ${
                   isCustom ? "" : selectedBg.class
                 }`}
                 style={isCustom ? { backgroundColor: customColor } : {}}
@@ -148,10 +146,10 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Original */}
                 <div className="flex flex-col gap-2">
-                  <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  <span className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">
                     Original Image
                   </span>
-                  <div className="aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 flex items-center justify-center">
+                  <div className="aspect-square rounded-2xl overflow-hidden bg-[#101211] border border-neutral-800 flex items-center justify-center">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={result.originalUrl}
@@ -167,7 +165,7 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
                     <Sparkles className="w-3.5 h-3.5" /> Clean AI Cutout
                   </span>
                   <div
-                    className={`aspect-square rounded-2xl overflow-hidden border border-slate-700/80 flex items-center justify-center ${
+                    className={`aspect-square rounded-2xl overflow-hidden border border-neutral-800 flex items-center justify-center ${
                       isCustom ? "" : selectedBg.class
                     }`}
                     style={isCustom ? { backgroundColor: customColor } : {}}
@@ -185,9 +183,9 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
           </div>
 
           {/* Background Replacement Bar */}
-          <div className="mt-6 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-2 text-xs font-semibold text-slate-300">
-              <Palette className="w-4 h-4 text-cyan-400" />
+          <div className="mt-6 p-4 rounded-2xl bg-[#181c1a] border border-neutral-800 flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-2 text-xs font-semibold text-neutral-300">
+              <Palette className="w-4 h-4 text-emerald-400" />
               <span>Replace Background:</span>
             </div>
 
@@ -201,8 +199,8 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
                   }}
                   className={`px-3 py-1.5 rounded-xl text-xs font-medium border transition-all cursor-pointer flex items-center gap-2 ${
                     !isCustom && selectedBg.id === preset.id
-                      ? "border-cyan-400 text-cyan-300 bg-slate-800"
-                      : "border-slate-800 text-slate-400 hover:text-white hover:bg-slate-850"
+                      ? "border-emerald-500 text-emerald-300 bg-neutral-800"
+                      : "border-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-800"
                   }`}
                 >
                   <span className={`w-3.5 h-3.5 rounded-full border border-white/20 ${preset.class}`} />
@@ -211,7 +209,7 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
               ))}
 
               {/* Custom Color Picker */}
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl border border-slate-800 bg-slate-850">
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl border border-neutral-800 bg-[#151817]">
                 <input
                   type="color"
                   value={customColor}
@@ -222,23 +220,23 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
                   className="w-5 h-5 rounded cursor-pointer border-none bg-transparent"
                   title="Pick a custom solid color"
                 />
-                <span className="text-[11px] text-slate-400 font-mono">{customColor}</span>
+                <span className="text-[11px] text-neutral-400 font-mono">{customColor}</span>
               </div>
             </div>
           </div>
 
           {/* Metrics & Performance Info */}
-          <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-slate-400">
-            <div className="p-3 rounded-xl bg-slate-900/50 border border-slate-800/80 flex items-center gap-2">
-              <Clock className="w-4 h-4 text-cyan-400 shrink-0" />
+          <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-neutral-400">
+            <div className="p-3 rounded-xl bg-[#181c1a] border border-neutral-800 flex items-center gap-2">
+              <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
               <div>
                 <p className="text-white font-semibold">{result.processingTimeSeconds}s</p>
                 <p className="text-[11px]">Processing Time</p>
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-slate-900/50 border border-slate-800/80 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-indigo-400 shrink-0" />
+            <div className="p-3 rounded-xl bg-[#181c1a] border border-neutral-800 flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-emerald-400 shrink-0" />
               <div>
                 <p className="text-white font-semibold">
                   {formatBytes(result.processedSizeBytes)}
@@ -247,7 +245,7 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-slate-900/50 border border-slate-800/80 col-span-2 sm:col-span-1 flex items-center gap-2">
+            <div className="p-3 rounded-xl bg-[#181c1a] border border-neutral-800 col-span-2 sm:col-span-1 flex items-center gap-2">
               <Check className="w-4 h-4 text-emerald-400 shrink-0" />
               <div>
                 <p className="text-white font-semibold">100% In-Memory</p>
@@ -257,10 +255,10 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
           </div>
 
           {/* Download & Sharing CTAs */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-end gap-3 pt-6 border-t border-slate-800">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-end gap-3 pt-6 border-t border-neutral-800">
             <button
               onClick={copyImageToClipboard}
-              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-sm font-semibold transition-all cursor-pointer"
+              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-200 text-sm font-semibold transition-colors cursor-pointer"
             >
               {copied ? "✓ Copied to Clipboard" : "Copy to Clipboard"}
             </button>
@@ -268,7 +266,7 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
             <button
               onClick={handleDownload}
               disabled={downloading}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 disabled:opacity-75 disabled:cursor-not-allowed text-white text-sm font-bold shadow-lg shadow-emerald-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-75 disabled:cursor-not-allowed text-white text-sm font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer"
             >
               <Download className={`w-4 h-4 ${downloading ? "animate-bounce" : ""}`} />
               <span>{downloading ? "Downloading PNG..." : "Download HD PNG"}</span>

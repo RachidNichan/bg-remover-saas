@@ -14,24 +14,22 @@ export function Navbar({ onOpenAuth }: NavbarProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full glass-panel border-b border-white/10 bg-slate-950/95 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 w-full border-b border-neutral-800/80 bg-[#0c0e0d]/95 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-cyan-400 p-[1.5px] transition-transform group-hover:scale-105">
-            <div className="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-cyan-300" />
-            </div>
+          <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center transition-colors group-hover:border-emerald-500/50">
+            <Sparkles className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="flex flex-col">
-            <span className="font-bold text-base sm:text-lg tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-200 bg-clip-text text-transparent">
-              Remove Backgrounds<span className="text-cyan-400"> Online</span>
+            <span className="font-semibold text-base sm:text-lg tracking-tight text-white">
+              Remove Backgrounds<span className="text-emerald-400 font-bold"> Online</span>
             </span>
           </div>
         </Link>
 
         {/* Navigation Links */}
-        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-neutral-400">
           <Link href="/#uploader" className="hover:text-white transition-colors">
             Online Remover
           </Link>
@@ -62,35 +60,35 @@ export function Navbar({ onOpenAuth }: NavbarProps) {
             <div className="relative">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex items-center gap-2 px-2.5 py-1.5 rounded-xl hover:bg-slate-800/80 border border-transparent hover:border-slate-700 transition-all text-sm font-medium text-slate-200"
+                className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg hover:bg-neutral-800/80 border border-transparent hover:border-neutral-700 transition-all text-sm font-medium text-neutral-200"
               >
                 {user.photoURL ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={user.photoURL}
                     alt={user.displayName || "User avatar"}
-                    className="w-7 h-7 rounded-full border border-indigo-500/40"
+                    className="w-7 h-7 rounded-full border border-neutral-700"
                   />
                 ) : (
-                  <div className="w-7 h-7 rounded-full bg-indigo-600 flex items-center justify-center text-xs font-bold text-white uppercase">
+                  <div className="w-7 h-7 rounded-full bg-emerald-600 flex items-center justify-center text-xs font-bold text-white uppercase">
                     {(user.displayName || user.email || "U")[0]}
                   </div>
                 )}
-                <span className="hidden lg:inline text-xs text-slate-300 max-w-[100px] truncate">
+                <span className="hidden lg:inline text-xs text-neutral-300 max-w-[100px] truncate">
                   {user.displayName || user.email?.split("@")[0]}
                 </span>
               </button>
 
               {dropdownOpen && (
                 <div
-                  className="absolute right-0 mt-2 w-56 rounded-xl glass-panel border border-slate-700 bg-slate-900 shadow-xl py-2 z-50 text-xs"
+                  className="absolute right-0 mt-2 w-56 rounded-xl border border-neutral-800 bg-[#151817] shadow-lg py-2 z-50 text-xs"
                   onClick={() => setDropdownOpen(false)}
                 >
-                  <div className="px-3 py-2 border-b border-slate-800">
-                    <p className="font-medium text-slate-200 truncate">
+                  <div className="px-3 py-2 border-b border-neutral-800">
+                    <p className="font-medium text-white truncate">
                       {user.displayName || "User"}
                     </p>
-                    <p className="text-slate-400 truncate">{user.email}</p>
+                    <p className="text-neutral-400 truncate">{user.email}</p>
                     <span className="inline-block mt-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-semibold text-[10px] border border-emerald-500/20">
                       Free Unlimited Plan
                     </span>
@@ -98,7 +96,7 @@ export function Navbar({ onOpenAuth }: NavbarProps) {
 
                   <button
                     onClick={() => signOutUser()}
-                    className="w-full text-left px-3 py-2 text-red-400 hover:text-red-300 hover:bg-slate-800 flex items-center gap-2 border-t border-slate-800 mt-1"
+                    className="w-full text-left px-3 py-2 text-red-400 hover:text-red-300 hover:bg-neutral-800 flex items-center gap-2 border-t border-neutral-800 mt-1"
                   >
                     <LogOut className="w-3.5 h-3.5" />
                     Sign Out
@@ -109,7 +107,7 @@ export function Navbar({ onOpenAuth }: NavbarProps) {
           ) : (
             <button
               onClick={onOpenAuth}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 hover:bg-indigo-500 text-white shadow-sm hover:shadow-indigo-500/25 transition-all"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors"
             >
               <LogIn className="w-3.5 h-3.5" />
               <span>Sign In</span>

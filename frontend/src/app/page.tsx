@@ -25,7 +25,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#090a0f] text-slate-100">
+    <div className="min-h-screen flex flex-col bg-[#0c0e0d] text-neutral-100">
       {/* Navigation */}
       <Navbar onOpenAuth={() => setAuthOpen(true)} />
 
