@@ -18,21 +18,24 @@ export function Footer() {
             </span>
           </Link>
 
-          <div className="flex flex-wrap items-center justify-center gap-6 text-neutral-600 dark:text-neutral-400">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-neutral-600 dark:text-neutral-400">
             <Link href="/#uploader" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
               Online Remover
             </Link>
             <Link href="/#how-it-works" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
               How It Works
             </Link>
-            <Link href="/#comparison" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
-              Comparison
+            <Link href="/about" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              About Us
             </Link>
-            <Link href="/#features" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
-              Features
+            <Link href="/help" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              Help Center
             </Link>
-            <Link href="/#faq" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+            <Link href="/faq" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
               FAQ
+            </Link>
+            <Link href="/contact" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              Contact Us
             </Link>
             <Link href="/privacy" className="text-neutral-700 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white transition-colors font-medium">
               Privacy Policy
@@ -49,12 +52,20 @@ export function Footer() {
               © {new Date().getFullYear()} Remove Backgrounds Online. All rights reserved.
             </p>
             <span className="text-neutral-300 dark:text-neutral-800 hidden sm:inline">•</span>
+            <Link href="/about" className="hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors">
+              About
+            </Link>
+            <span className="text-neutral-300 dark:text-neutral-800">•</span>
+            <Link href="/contact" className="hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors">
+              Contact
+            </Link>
+            <span className="text-neutral-300 dark:text-neutral-800">•</span>
             <Link href="/privacy" className="hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors">
-              Privacy Policy
+              Privacy
             </Link>
             <span className="text-neutral-300 dark:text-neutral-800">•</span>
             <Link href="/terms" className="hover:text-neutral-800 dark:hover:text-neutral-300 transition-colors">
-              Terms of Service
+              Terms
             </Link>
           </div>
           <div className="flex items-center gap-4">
