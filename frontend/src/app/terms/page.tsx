@@ -132,29 +132,25 @@ export default function TermsOfServicePage() {
           {/* Section 3 */}
           <section id="accounts-credits" className="scroll-mt-24">
             <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-              <CreditCard className="w-5 h-5 text-emerald-400" />
-              <span>3. User Accounts &amp; Credit System</span>
+              <UserCheck className="w-5 h-5 text-emerald-400" />
+              <span>3. User Accounts &amp; 100% Free Access</span>
             </h2>
             <p className="mb-3">
-              To utilize full-resolution downloads and track credit balance, users may register an account using
-              Google Sign-In or email credentials via Firebase Authentication:
+              Remove Backgrounds Online is currently provided 100% free of charge with unlimited image background removals.
+              Users can register an optional account using Google Sign-In or email credentials via Firebase Authentication:
             </p>
             <ul className="list-disc pl-5 space-y-2 mb-3">
               <li>
-                <strong>Free Credits:</strong> New verified user accounts may receive promotional complimentary credits
-                (e.g., 3 free credits upon initial signup) to test the Service.
+                <strong>Unlimited Free Processing:</strong> There are no credit quotas, limits, or paywalls imposed on
+                background removal. You are free to process as many images as you need.
               </li>
               <li>
-                <strong>Credit Consumption:</strong> Each successful background removal request consumes one (1) credit
-                from your account balance upon processing.
+                <strong>No Payment Required:</strong> No credit card, billing information, or paid subscription is required
+                to use the platform.
               </li>
               <li>
-                <strong>Non-Transferability:</strong> Credits are tied exclusively to your registered account and cannot
-                be transferred, bartered, or redeemed for cash.
-              </li>
-              <li>
-                <strong>Account Responsibility:</strong> You are responsible for safeguarding your login credentials and
-                for all activities occurring under your account.
+                <strong>Account Responsibility:</strong> If you register an account, you are responsible for maintaining
+                the confidentiality of your login credentials and for all activities occurring under your account.
               </li>
             </ul>
           </section>
@@ -213,24 +209,17 @@ export default function TermsOfServicePage() {
           {/* Section 6 */}
           <section id="payments-refunds" className="scroll-mt-24">
             <h2 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
-              <CreditCard className="w-5 h-5 text-cyan-400" />
-              <span>6. Payments, Billing &amp; Refunds</span>
+              <Sparkles className="w-5 h-5 text-cyan-400" />
+              <span>6. 100% Free Service &amp; Future Upgrades</span>
             </h2>
             <p className="mb-3">
-              Credit bundles and premium subscriptions are billed in U.S. Dollars (USD) or local currency equivalents.
-              All payment transactions are handled through secure third-party payment gateways.
+              The Service is currently offered 100% free of charge. No payment information, credit cards, or subscription
+              fees are collected.
             </p>
             <p>
-              <strong>Refunds:</strong> If you purchase credits and encounter technical malfunctions preventing the successful
-              removal of backgrounds, contact our support team at{" "}
-              <a
-                href="mailto:support@removebackgrounds.online"
-                className="text-indigo-400 hover:text-indigo-300 underline font-medium"
-              >
-                support@removebackgrounds.online
-              </a>{" "}
-              within 14 days of purchase. Unused credit packages may be refunded upon review. Consumed credits are generally
-              non-refundable.
+              In the future, optional paid premium tiers (such as dedicated high-concurrency API access or team
+              collaboration tools) may be introduced. If such upgrades are introduced, existing free features will remain
+              clearly documented, and no user will ever be billed without explicit and informed consent.
             </p>
           </section>
 

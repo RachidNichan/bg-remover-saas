@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <p>
               We believe privacy is a fundamental human right. Our architecture is deliberately designed so that
-              we collect only the bare minimum data required to authenticate users and manage service credits.
+              we collect only the bare minimum data required to authenticate users and operate the service.
             </p>
           </section>
 
@@ -139,7 +139,7 @@ export default function PrivacyPolicyPage() {
                 <ul className="list-disc pl-5 mt-2 space-y-1 text-xs text-slate-300">
                   <li>Your Google account email address and unique User ID (UID).</li>
                   <li>Your public profile display name and profile picture URL (if provided by Google).</li>
-                  <li>Account creation timestamp and remaining credit balance stored in Cloud Firestore.</li>
+                  <li>Account creation timestamp and processed image counter stored in Cloud Firestore.</li>
                 </ul>
               </div>
 
@@ -178,7 +178,7 @@ export default function PrivacyPolicyPage() {
             <p className="mb-3">We use collected information exclusively to:</p>
             <ul className="list-disc pl-5 space-y-1.5">
               <li>Authenticate your identity when signing in via Google OAuth or email.</li>
-              <li>Maintain your credit balance and record credit consumption upon image processing.</li>
+              <li>Record your total processed image counter and maintain your account profile.</li>
               <li>Execute the requested background removal transformation in real time.</li>
               <li>Prevent automated bot abuse, fraud, and Denial of Service (DoS) attacks.</li>
               <li>Provide customer support when you reach out to our team.</li>
@@ -201,7 +201,7 @@ export default function PrivacyPolicyPage() {
             <ul className="list-disc pl-5 space-y-2">
               <li>
                 <strong>Google Firebase Authentication &amp; Firestore:</strong> Handles secure authentication, OAuth sign-in,
-                and user credit balance records under Google Cloud Enterprise security standards.
+                and user profile records under Google Cloud Enterprise security standards.
               </li>
               <li>
                 <strong>Cloud Hosting Infrastructure:</strong> Houses our self-hosted Docker containers and Python AI

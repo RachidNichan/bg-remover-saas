@@ -18,8 +18,8 @@ const FAQS: FAQItem[] = [
     a: "The ONNX Runtime executes the quantized model graph with CPU instruction optimizations (AVX2/AVX-512). The neural network model is loaded into RAM once upon service startup (taking ~0.38s), meaning consecutive image requests are processed in memory in ~1.5 - 2.5 seconds without any cold-start penalties.",
   },
   {
-    q: "How are my user credits tracked and protected?",
-    a: "Each authenticated user receives 3 complimentary credits stored in Cloud Firestore under users/{userId}. Whenever an image is processed, an atomic Firestore transaction checks that credits > 0 and decrements the balance by 1. If credits reach zero, an upgrade prompt appears.",
+    q: "Is Remove Backgrounds Online completely free to use?",
+    a: "Yes! Remove Backgrounds Online is 100% free with unlimited image background removals. There are no credit restrictions, paywalls, or hidden charges. You can process as many portraits, products, and graphics as you need at zero cost.",
   },
   {
     q: "Are my uploaded photos stored or shared?",
@@ -54,7 +54,7 @@ export function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="mt-2 text-slate-400 text-sm">
-            Everything you need to know about Remove Backgrounds Online, credits, and architecture.
+            Everything you need to know about Remove Backgrounds Online, image processing, and privacy.
           </p>
         </div>
 

@@ -3,18 +3,15 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
-import { Sparkles, Zap, LogIn, LogOut, User } from "lucide-react";
+import { Sparkles, LogIn, LogOut, User } from "lucide-react";
 
 interface NavbarProps {
   onOpenAuth: () => void;
-  onOpenUpgrade: () => void;
 }
 
-export function Navbar({ onOpenAuth, onOpenUpgrade }: NavbarProps) {
-  const { user, profile, signOutUser, isFirebaseConfigured } = useAuth();
+export function Navbar({ onOpenAuth }: NavbarProps) {
+  const { user, signOutUser } = useAuth();
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const credits = profile?.credits ?? 3;
 
   return (
     <header className="sticky top-0 z-40 w-full glass-panel border-b border-white/10 bg-slate-950/95 backdrop-blur-xl">
@@ -47,26 +44,18 @@ export function Navbar({ onOpenAuth, onOpenUpgrade }: NavbarProps) {
           <Link href="/#features" className="hover:text-white transition-colors">
             Features
           </Link>
-          <Link href="/#pricing" className="hover:text-white transition-colors">
-            Pricing
-          </Link>
           <Link href="/#faq" className="hover:text-white transition-colors">
             FAQ
           </Link>
         </nav>
 
-        {/* Right Section: Credits & Auth */}
+        {/* Right Section: Auth & User Menu */}
         <div className="flex items-center gap-3">
-
-          {/* Credits Counter Pill */}
-          <button
-            onClick={onOpenUpgrade}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-cyan-500/10 border border-indigo-500/30 text-indigo-200 hover:border-indigo-400 transition-all cursor-pointer"
-          >
-            <Zap className="w-3.5 h-3.5 text-cyan-400 fill-cyan-400" />
-            <span>{credits} {credits === 1 ? "Credit" : "Credits"}</span>
-            <span className="text-cyan-400 font-bold ml-0.5 hover:underline">+</span>
-          </button>
+          {/* 100% Free Badge */}
+          <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/25 text-emerald-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span>100% Free</span>
+          </div>
 
           {/* Auth Controls */}
           {user ? (
@@ -102,18 +91,10 @@ export function Navbar({ onOpenAuth, onOpenUpgrade }: NavbarProps) {
                       {user.displayName || "User"}
                     </p>
                     <p className="text-slate-400 truncate">{user.email}</p>
-                    <p className="text-cyan-400 mt-1 font-semibold">
-                      Balance: {credits} Credits
-                    </p>
+                    <span className="inline-block mt-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-semibold text-[10px] border border-emerald-500/20">
+                      Free Unlimited Plan
+                    </span>
                   </div>
-
-                  <button
-                    onClick={onOpenUpgrade}
-                    className="w-full text-left px-3 py-2 text-slate-300 hover:text-white hover:bg-slate-800 flex items-center gap-2"
-                  >
-                    <Zap className="w-3.5 h-3.5 text-indigo-400" />
-                    Buy More Credits
-                  </button>
 
                   <button
                     onClick={() => signOutUser()}

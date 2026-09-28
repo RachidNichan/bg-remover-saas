@@ -33,9 +33,6 @@ export function Footer() {
             <Link href="/#features" className="hover:text-white transition-colors">
               Features
             </Link>
-            <Link href="/#pricing" className="hover:text-white transition-colors">
-              Pricing Plans
-            </Link>
             <Link href="/#faq" className="hover:text-white transition-colors">
               FAQ
             </Link>

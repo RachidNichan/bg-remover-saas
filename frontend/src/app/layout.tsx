@@ -102,7 +102,7 @@ const structuredData = {
         "@type": "Offer",
         price: "0",
         priceCurrency: "USD",
-        description: "3 Free Credits upon signup",
+        description: "100% Free Unlimited AI Background Removal",
       },
       featureList: [
         "100% Automatic AI Background Removal",

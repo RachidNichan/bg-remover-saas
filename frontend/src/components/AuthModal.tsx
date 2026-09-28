@@ -83,12 +83,12 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             </div>
           </div>
           <h3 className="text-xl font-bold text-white">
-            {mode === "signin" ? "Welcome Back" : "Claim 3 Free Credits"}
+            {mode === "signin" ? "Welcome Back" : "Create Free Account"}
           </h3>
           <p className="text-xs text-slate-400 mt-1">
             {mode === "signin"
-              ? "Sign in to access your credits & processed history"
-              : "Create an account to start removing backgrounds instantly"}
+              ? "Sign in to access your processed history & account settings"
+              : "Create a free account to start removing backgrounds instantly"}
           </p>
         </div>
 
@@ -231,7 +231,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             disabled={loading}
             className="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/25 transition-all flex items-center justify-center gap-2 cursor-pointer mt-2"
           >
-            <span>{mode === "signin" ? "Sign In" : "Claim Free 3 Credits"}</span>
+            <span>{mode === "signin" ? "Sign In" : "Create Free Account"}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
 

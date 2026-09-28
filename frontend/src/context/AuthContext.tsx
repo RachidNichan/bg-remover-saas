@@ -243,43 +243,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const deductCredit = async (): Promise<boolean> => {
-    if (!user || !profile) return false;
-
-    if (profile.credits <= 0) {
-      return false;
+    if (user && profile) {
+      setProfile((prev) =>
+        prev
+          ? {
+              ...prev,
+              totalProcessed: (prev.totalProcessed || 0) + 1,
+            }
+          : null
+      );
     }
-
-    if (isFirebaseConfigured && auth) {
-      try {
-        const res = await deductUserCredit(user.uid);
-        setProfile((prev) =>
-          prev
-            ? {
-                ...prev,
-                credits: res.remainingCredits,
-                totalProcessed: prev.totalProcessed + 1,
-              }
-            : null
-        );
-        return true;
-      } catch (err: any) {
-        if (err.message === "INSUFFICIENT_CREDITS") {
-          return false;
-        }
-        throw err;
-      }
-    } else {
-      // Local deduction
-      const newCredits = Math.max(0, profile.credits - 1);
-      const updated: UserProfile = {
-        ...profile,
-        credits: newCredits,
-        totalProcessed: profile.totalProcessed + 1,
-      };
-      setProfile(updated);
-      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updated));
-      return true;
-    }
+    return true;
   };
 
   const addCredits = async (amount: number) => {

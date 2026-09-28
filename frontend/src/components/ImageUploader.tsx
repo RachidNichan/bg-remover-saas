@@ -11,7 +11,6 @@ import {
   Check,
   Loader2,
   Lock,
-  Zap,
 } from "lucide-react";
 import { ProcessingResult, ProcessingState } from "@/types";
 import { formatBytes } from "@/lib/utils";
@@ -19,7 +18,6 @@ import { formatBytes } from "@/lib/utils";
 interface ImageUploaderProps {
   onProcessComplete: (result: ProcessingResult) => void;
   onOpenAuth: () => void;
-  onOpenUpgrade: () => void;
 }
 
 const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024; // 10MB
@@ -27,9 +25,8 @@ const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024; // 10MB
 export function ImageUploader({
   onProcessComplete,
   onOpenAuth,
-  onOpenUpgrade,
 }: ImageUploaderProps) {
-  const { user, profile, deductCredit } = useAuth();
+  const { user, deductCredit } = useAuth();
 
   const [dragActive, setDragActive] = useState<boolean>(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -133,13 +130,6 @@ export function ImageUploader({
   const handleRemoveBackground = async () => {
     if (!selectedFile) return;
 
-    // Check credits
-    const credits = profile?.credits ?? 3;
-    if (credits <= 0) {
-      onOpenUpgrade();
-      return;
-    }
-
     setState("processing");
     setProcessingStep("Sending image to AI microservice...");
 
@@ -214,8 +204,6 @@ export function ImageUploader({
     setState("idle");
     if (fileInputRef.current) fileInputRef.current.value = "";
   };
-
-  const currentCredits = profile?.credits ?? 3;
 
   return (
     <section id="uploader" className="py-12 md:py-20 relative">
@@ -328,13 +316,9 @@ export function ImageUploader({
 
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-                <div className="flex items-center gap-2 text-xs text-slate-400">
-                  <Zap className="w-4 h-4 text-amber-400" />
-                  <span>Cost: 1 Credit</span>
-                  <span className="text-slate-600">•</span>
-                  <span className={currentCredits > 0 ? "text-emerald-400" : "text-red-400 font-semibold"}>
-                    {currentCredits} Credits Available
-                  </span>
+                <div className="flex items-center gap-2 text-xs text-emerald-400 font-medium">
+                  <Sparkles className="w-4 h-4 text-cyan-400" />
+                  <span>100% Free • Unlimited AI Removals</span>
                 </div>
 
                 <div className="flex items-center gap-3 w-full sm:w-auto">
@@ -391,7 +375,7 @@ export function ImageUploader({
                   <span className="text-cyan-400 hover:underline">browse files</span>
                 </p>
                 <p className="text-xs text-slate-400 mt-2">
-                  Supports JPG, PNG, WEBP • Max 10MB • 100% Free Trial
+                  Supports JPG, PNG, WEBP • Max 10MB • 100% Free &amp; Unlimited
                 </p>
               </div>
 
