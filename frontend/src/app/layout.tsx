@@ -80,15 +80,58 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  applicationName: "Remove Backgrounds Online",
+  appleWebApp: {
+    title: "Remove Backgrounds Online",
+    statusBarStyle: "default",
+    capable: true,
+  },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/icon-48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-96.png", sizes: "96x96", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
-// JSON-LD Structured Data Schema for Search Engines
+// JSON-LD Structured Data Schema for Search Engines (including WebSite Site Name for Google Search)
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      name: "Remove Backgrounds Online",
+      alternateName: [
+        "Remove Backgrounds",
+        "RemoveBackgroundsOnline",
+        "removebackgrounds.online",
+      ],
+      url: `${siteUrl}/`,
+      publisher: {
+        "@id": `${siteUrl}/#organization`,
+      },
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Remove Backgrounds Online",
+      url: `${siteUrl}/`,
+      logo: {
+        "@type": "ImageObject",
+        "@id": `${siteUrl}/#logo`,
+        url: `${siteUrl}/icon-512.png`,
+        caption: "Remove Backgrounds Online Logo",
+        width: 512,
+        height: 512,
+      },
+    },
     {
       "@type": "WebApplication",
       "@id": `${siteUrl}/#webapp`,
