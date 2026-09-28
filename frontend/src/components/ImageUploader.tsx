@@ -172,16 +172,23 @@ export function ImageUploader({
       setProcessingStep("Finalizing HD transparent PNG...");
 
       const blob = await response.blob();
-      const processedUrl = URL.createObjectURL(blob);
+      const pngBlob = new Blob([blob], { type: "image/png" });
+      const processedUrl = URL.createObjectURL(pngBlob);
       const elapsedSeconds = (performance.now() - startTime) / 1000;
 
       // Deduct credit in Firestore / local state
       await deductCredit();
 
+      const rawBaseName = (selectedFile.name || "image")
+        .replace(/\.[^/.]+$/, "")
+        .replace(/[/\\?%*:|"<>]/g, "_")
+        .trim();
+      const cleanBaseName = rawBaseName || "image";
+
       const result: ProcessingResult = {
         originalUrl: previewUrl || "",
         processedUrl: processedUrl,
-        fileName: selectedFile.name.replace(/\.[^/.]+$/, "") + "-nobg.png",
+        fileName: `${cleanBaseName}-nobg.png`,
         originalSizeBytes: selectedFile.size,
         processedSizeBytes: blob.size,
         processingTimeSeconds: parseFloat(elapsedSeconds.toFixed(2)),

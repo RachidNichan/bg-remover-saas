@@ -24,33 +24,59 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
   const [isCustom, setIsCustom] = useState<boolean>(false);
   const [viewMode, setViewMode] = useState<"cutout" | "sideBySide">("cutout");
   const [copied, setCopied] = useState<boolean>(false);
+  const [downloading, setDownloading] = useState<boolean>(false);
 
-  const handleDownload = () => {
-    // If transparent, download directly
-    if (selectedBg.id === "transparent" && !isCustom) {
-      downloadImage(result.processedUrl, result.fileName);
-      return;
-    }
+  const handleDownload = async () => {
+    if (downloading) return;
+    setDownloading(true);
 
-    // If solid background is chosen, composite onto canvas and download
-    const img = new Image();
-    img.crossOrigin = "anonymous";
-    img.src = result.processedUrl;
-    img.onload = () => {
+    try {
+      // If transparent, download directly from processed blob URL
+      if (selectedBg.id === "transparent" && !isCustom) {
+        await downloadImage(result.processedUrl, result.fileName);
+        return;
+      }
+
+      // If solid or custom background is chosen, composite onto canvas and download
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.src = result.processedUrl;
+
+      await new Promise<void>((resolve, reject) => {
+        img.onload = () => resolve();
+        img.onerror = reject;
+      });
+
       const canvas = document.createElement("canvas");
       canvas.width = img.naturalWidth || 1024;
       canvas.height = img.naturalHeight || 1024;
       const ctx = canvas.getContext("2d");
       if (ctx) {
         // Draw background
-        ctx.fillStyle = isCustom ? customColor : selectedBg.color === "gradient" ? "#6366f1" : selectedBg.color;
+        ctx.fillStyle = isCustom
+          ? customColor
+          : selectedBg.color === "gradient"
+          ? "#6366f1"
+          : selectedBg.color;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         // Draw image
         ctx.drawImage(img, 0, 0);
-        const dataUrl = canvas.toDataURL("image/png");
-        downloadImage(dataUrl, result.fileName.replace(".png", "-custom.png"));
+
+        await new Promise<void>((resolve) => {
+          canvas.toBlob(async (blob) => {
+            if (blob) {
+              const baseName = result.fileName.replace(/\.png$/i, "");
+              await downloadImage(blob, `${baseName}-custom.png`);
+            }
+            resolve();
+          }, "image/png");
+        });
       }
-    };
+    } catch (err) {
+      console.error("Download failed:", err);
+    } finally {
+      setTimeout(() => setDownloading(false), 800);
+    }
   };
 
   const copyImageToClipboard = async () => {
@@ -241,10 +267,11 @@ export function ResultPreview({ result, onReset }: ResultPreviewProps) {
 
             <button
               onClick={handleDownload}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 text-white text-sm font-bold shadow-lg shadow-emerald-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              disabled={downloading}
+              className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-600 hover:to-cyan-600 disabled:opacity-75 disabled:cursor-not-allowed text-white text-sm font-bold shadow-lg shadow-emerald-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
-              <Download className="w-4 h-4" />
-              <span>Download HD PNG</span>
+              <Download className={`w-4 h-4 ${downloading ? "animate-bounce" : ""}`} />
+              <span>{downloading ? "Downloading PNG..." : "Download HD PNG"}</span>
             </button>
           </div>
         </div>

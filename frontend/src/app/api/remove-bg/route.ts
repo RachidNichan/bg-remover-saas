@@ -107,6 +107,7 @@ export async function POST(request: NextRequest) {
       headers: {
         "Content-Type": "image/png",
         "Content-Disposition": 'inline; filename="background_removed.png"',
+        "X-Content-Type-Options": "nosniff",
         "X-Process-Time": processTime,
         "Cache-Control": "no-store, max-age=0",
       },
