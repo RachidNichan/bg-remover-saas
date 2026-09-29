@@ -59,9 +59,9 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       authors: [post.author.name],
       images: [
         {
-          url: "https://removebackgrounds.online/samples/portrait-after.png",
-          width: 1024,
-          height: 1024,
+          url: `https://removebackgrounds.online${post.coverImage}`,
+          width: 1200,
+          height: 675,
           alt: post.title,
         },
       ],
@@ -70,7 +70,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: ["https://removebackgrounds.online/samples/portrait-after.png"],
+      images: [`https://removebackgrounds.online${post.coverImage}`],
     },
   };
 }
@@ -91,7 +91,7 @@ export default async function BlogPostPage({ params }: ArticlePageProps) {
       "@type": "Article",
       headline: post.title,
       description: post.description,
-      image: "https://removebackgrounds.online/samples/portrait-after.png",
+      image: `https://removebackgrounds.online${post.coverImage}`,
       datePublished: post.isoDate,
       dateModified: post.isoDate,
       mainEntityOfPage: {
@@ -431,6 +431,17 @@ export default async function BlogPostPage({ params }: ArticlePageProps) {
           </div>
         </div>
 
+        {/* Featured Cover Image */}
+        <div className="my-8 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 shadow-sm">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={post.coverImage}
+            alt={post.title}
+            className="w-full aspect-video object-cover"
+            loading="eager"
+          />
+        </div>
+
         {/* Article Body */}
         <article className="border-t border-neutral-200 dark:border-neutral-800 pt-6">
           {renderFormattedContent(post.content)}
@@ -488,6 +499,15 @@ export default async function BlogPostPage({ params }: ArticlePageProps) {
                   className="p-4 rounded-xl bg-[#f3f5f4] dark:bg-[#151817] border border-neutral-200 dark:border-neutral-800 hover:border-emerald-500/40 transition-all group flex flex-col justify-between"
                 >
                   <div>
+                    <div className="aspect-video w-full rounded-lg overflow-hidden mb-3 border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={other.coverImage}
+                        alt={other.title}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
                     <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider block mb-1">
                       {other.category}
                     </span>

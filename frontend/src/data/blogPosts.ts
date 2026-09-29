@@ -12,6 +12,7 @@ export interface BlogPost {
     bio: string;
   };
   keywords: string[];
+  coverImage: string;
   content: string;
 }
 
@@ -40,6 +41,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "free product background remover",
       "ecommerce image background removal",
     ],
+    coverImage: "/blog/product-photos-guide.jpg",
     content: `
 ## Why Product Image Backgrounds Make or Break E-Commerce Sales
 
@@ -118,6 +120,7 @@ By utilizing a fast, free online tool like [Remove Backgrounds Online](https://r
       "create digital signature transparent background",
       "make signature transparent online free",
     ],
+    coverImage: "/blog/transparent-signature-guide.jpg",
     content: `
 ## The Problem with Traditional Scanned Signatures
 
@@ -196,6 +199,7 @@ When handling personal signatures, document security is paramount:
       "remove background from portrait photo free",
       "clean headshot background for job application",
     ],
+    coverImage: "/blog/professional-headshot-guide.jpg",
     content: `
 ## Why Your Profile Picture Background Matters
 
@@ -286,6 +290,7 @@ With [Remove Backgrounds Online](https://removebackgrounds.online/), you can ref
       "autotrader car photo background",
       "facebook marketplace car cutout",
     ],
+    coverImage: "/blog/car-cutout-guide.jpg",
     content: `
 ## Why Backgrounds Matter in Automotive Sales
 
@@ -366,6 +371,7 @@ By leveraging [Remove Backgrounds Online](https://removebackgrounds.online/), de
       "remove white background from logo png",
       "graphic design background removal guide",
     ],
+    coverImage: "/blog/png-vs-jpg-guide.jpg",
     content: `
 ## The Fundamental Difference: Transparency vs. Compression
 

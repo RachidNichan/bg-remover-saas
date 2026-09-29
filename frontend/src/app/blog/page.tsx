@@ -62,6 +62,7 @@ export default function BlogIndexPage() {
       "@type": "BlogPosting",
       headline: post.title,
       description: post.description,
+      image: `https://removebackgrounds.online${post.coverImage}`,
       url: `https://removebackgrounds.online/blog/${post.slug}`,
       datePublished: post.isoDate,
       author: {
@@ -151,7 +152,23 @@ export default function BlogIndexPage() {
               }`}
             >
               <div>
-                <div className="flex flex-wrap items-center gap-2.5 mb-4 text-xs">
+                {/* Article Cover Image */}
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className={`block relative aspect-video w-full rounded-xl overflow-hidden mb-5 border border-neutral-200/80 dark:border-neutral-800/80 bg-neutral-100 dark:bg-neutral-800/50 ${
+                    idx === 0 ? "md:max-h-[380px]" : "max-h-[220px]"
+                  }`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={post.coverImage}
+                    alt={post.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading={idx === 0 ? "eager" : "lazy"}
+                  />
+                </Link>
+
+                <div className="flex flex-wrap items-center gap-2.5 mb-3 text-xs">
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/25 text-emerald-700 dark:text-emerald-400 font-semibold">
                     {CATEGORY_ICONS[post.category] || null}
                     <span>{post.category}</span>
