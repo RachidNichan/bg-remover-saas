@@ -31,6 +31,12 @@ export function Footer() {
             <Link href="/remove-bg-alternative" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
               remove.bg Alternative
             </Link>
+            <Link href="/transparent-signature-maker" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              Transparent Signature
+            </Link>
+            <Link href="/white-background-product-photos" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              Product Photos
+            </Link>
             <Link href="/about" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
               About Us
             </Link>
