@@ -99,25 +99,6 @@ export const metadata: Metadata = {
   },
 };
 
-// JSON-LD Structured Data Schema for Search Engines (Organization & WebSite)
-const jsonLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Remove Backgrounds Online",
-    url: siteUrl,
-    logo: `${siteUrl}/icon-512.png`,
-    description:
-      "A platform for removing backgrounds from images online in 1 click for free with HD transparent PNG download.",
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Remove Backgrounds Online",
-    alternateName: "Remove Backgrounds",
-    url: siteUrl,
-  },
-];
 
 export default function RootLayout({
   children,
@@ -164,10 +145,6 @@ export default function RootLayout({
               })();
             `,
           }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className="min-h-full flex flex-col bg-white text-neutral-900 dark:bg-[#0c0e0d] dark:text-neutral-100 selection:bg-emerald-500 selection:text-white transition-colors duration-150">
