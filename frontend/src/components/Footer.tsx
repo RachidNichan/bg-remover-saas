@@ -28,6 +28,9 @@ export function Footer() {
             <Link href="/blog" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
               Blog
             </Link>
+            <Link href="/remove-bg-alternative" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              remove.bg Alternative
+            </Link>
             <Link href="/about" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
               About Us
             </Link>
