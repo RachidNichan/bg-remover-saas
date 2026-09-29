@@ -1,7 +1,23 @@
 import { MetadataRoute } from "next";
+import { BLOG_POSTS } from "@/data/blogPosts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "https://removebackgrounds.online";
+
+  const blogEntries: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    ...BLOG_POSTS.map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.isoDate),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+  ];
 
   return [
     {
@@ -10,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 1.0,
     },
+    ...blogEntries,
     {
       url: `${baseUrl}/remove-background`,
       lastModified: new Date(),

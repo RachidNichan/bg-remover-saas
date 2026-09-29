@@ -34,6 +34,9 @@ export function Navbar({ onOpenAuth }: NavbarProps) {
           <Link href="/remove-background" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
             Remove Background
           </Link>
+          <Link href="/blog" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+            Blog
+          </Link>
           <Link href="/faq" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
             FAQ
           </Link>

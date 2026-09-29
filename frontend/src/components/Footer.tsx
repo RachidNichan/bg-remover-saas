@@ -25,6 +25,9 @@ export function Footer() {
             <Link href="/#how-it-works" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
               How It Works
             </Link>
+            <Link href="/blog" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
+              Blog
+            </Link>
             <Link href="/about" className="hover:text-neutral-900 dark:hover:text-white transition-colors">
               About Us
             </Link>
