@@ -13,6 +13,13 @@ interface SamplePreset {
 
 const PRESETS: SamplePreset[] = [
   {
+    id: "bag",
+    name: "Luxury Handbag",
+    tag: "E-Commerce Product",
+    before: "/samples/bag-before.jpg",
+    after: "/samples/bag-after.png",
+  },
+  {
     id: "portrait",
     name: "Model Portrait",
     tag: "Complex Hair Details",
@@ -33,8 +40,20 @@ export function BeforeAfterSlider() {
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [activePreset, setActivePreset] = useState<SamplePreset>(PRESETS[0]);
   const [bgStyle, setBgStyle] = useState<"checkerboard" | "white" | "dark" | "emerald">("checkerboard");
+  const [containerWidth, setContainerWidth] = useState<number>(0);
 
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const updateWidth = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.clientWidth);
+      }
+    };
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, [activePreset]);
 
   const handleMove = useCallback((clientX: number) => {
     if (!containerRef.current) return;
@@ -103,7 +122,7 @@ export function BeforeAfterSlider() {
                 onClick={() => setActivePreset(preset)}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer flex items-center gap-2 ${
                   activePreset.id === preset.id
-                    ? "bg-emerald-600 text-white"
+                    ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/20"
                     : "bg-white dark:bg-[#151817] border border-neutral-300 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:border-neutral-400 dark:hover:border-neutral-700"
                 }`}
               >
@@ -165,7 +184,7 @@ export function BeforeAfterSlider() {
         <div className="relative mx-auto max-w-3xl rounded-2xl p-1 bg-[#f3f5f4] dark:bg-[#151817] border border-neutral-200 dark:border-neutral-800 transition-colors duration-150">
           <div
             ref={containerRef}
-            className="relative aspect-square w-full rounded-xl overflow-hidden select-none cursor-ew-resize touch-none border border-neutral-300 dark:border-neutral-800"
+            className="relative aspect-[4/3] w-full rounded-xl overflow-hidden select-none cursor-ew-resize touch-none border border-neutral-300 dark:border-neutral-800"
             onMouseDown={() => setIsDragging(true)}
             onTouchStart={() => setIsDragging(true)}
           >
@@ -189,7 +208,7 @@ export function BeforeAfterSlider() {
               />
 
               {/* Label Right */}
-              <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-lg bg-white/90 dark:bg-[#0c0e0d]/90 border border-neutral-200 dark:border-neutral-800 text-xs font-semibold text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
+              <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-lg bg-white/90 dark:bg-[#0c0e0d]/90 border border-neutral-200 dark:border-neutral-800 text-xs font-semibold text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5 shadow-sm">
                 <Sparkles className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
                 <span>Background Removed</span>
               </div>
@@ -206,12 +225,12 @@ export function BeforeAfterSlider() {
                 alt="Original photo before background removal"
                 className="absolute inset-0 w-full h-full object-cover max-w-none"
                 style={{
-                  width: containerRef.current ? `${containerRef.current.clientWidth}px` : "100%",
+                  width: containerWidth ? `${containerWidth}px` : "100%",
                 }}
               />
 
               {/* Label Left */}
-              <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-lg bg-white/90 dark:bg-[#0c0e0d]/90 border border-neutral-200 dark:border-neutral-800 text-xs font-semibold text-neutral-800 dark:text-neutral-300">
+              <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-lg bg-white/90 dark:bg-[#0c0e0d]/90 border border-neutral-200 dark:border-neutral-800 text-xs font-semibold text-neutral-800 dark:text-neutral-300 shadow-sm">
                 <span>Original Photo</span>
               </div>
             </div>
@@ -221,7 +240,7 @@ export function BeforeAfterSlider() {
               className="absolute top-0 bottom-0 w-0.5 bg-white cursor-ew-resize z-20 pointer-events-none"
               style={{ left: `${sliderPosition}%` }}
             >
-              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-neutral-900 border-2 border-white flex items-center justify-center text-emerald-400 pointer-events-auto hover:scale-105 active:scale-95 transition-transform">
+              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-neutral-900 border-2 border-white flex items-center justify-center text-emerald-400 pointer-events-auto hover:scale-105 active:scale-95 transition-transform shadow-lg">
                 <SlidersHorizontal className="w-3.5 h-3.5 rotate-90 text-emerald-400" />
               </div>
             </div>

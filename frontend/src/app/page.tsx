@@ -8,6 +8,7 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { ImageUploader } from "@/components/ImageUploader";
 import { ResultPreview } from "@/components/ResultPreview";
 import { Features } from "@/components/Features";
+import { ShowcaseGallery } from "@/components/ShowcaseGallery";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { AuthModal } from "@/components/AuthModal";
@@ -83,6 +84,9 @@ export default function HomePage() {
         <div id="features" className="scroll-mt-20">
           <Features />
         </div>
+
+        {/* 4 Bottom Cutout Showcase Images */}
+        <ShowcaseGallery onScrollToUploader={scrollToUploader} />
 
         {/* FAQ Accordion */}
         <div id="faq" className="scroll-mt-20">
